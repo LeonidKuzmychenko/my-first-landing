@@ -3,11 +3,9 @@ import Menu from './components/Menu';
 import Section from './components/Section';
 import Footer from './components/Footer';
 import HomeSection from './components/sections/HomeSection';
-import AboutSection from './components/sections/AboutSection';
 import ServicesSection from './components/sections/ServicesSection';
 import AchievementsSection from './components/sections/AchievementsSection';
 import ContactsSection from "./components/sections/ContactsSection";
-import BenefitsSection from "./components/sections/GoalsSection";
 import GoalsSection from "./components/sections/GoalsSection";
 
 export interface SectionData {
@@ -17,6 +15,7 @@ export interface SectionData {
 }
 
 const App: React.FC = () => {
+    document.title = "Персональный тренер Степан Бандера"
     // Данные для секций
     const sections: SectionData[] = [
         {id: 'home', title: 'Главная', content: <HomeSection/>},
