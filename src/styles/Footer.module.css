@@ -1,0 +1,75 @@
+.content {
+    background-color: #333333;
+    padding: 10px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    /*height: 132px;*/
+    gap: 10px;
+}
+
+.textWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.textItem {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.textItemTitle {
+    text-align: center;
+}
+
+.textItemValue {
+    text-align: center;
+}
+
+.socialMediaWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.socialMedia {
+    display: flex;
+}
+
+.socialMediaImage {
+    height: 30px;
+    width: 30px;
+}
+
+.creator {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 100%;
+}
+
+/* Мобильные устройства */
+@media (max-width: 480px) {
+
+}
+
+/* Смартфоны среднего размера */
+@media (max-width: 767px) {
+
+}
+
+/* Планшеты */
+@media (max-width: 1023px) {
+
+}
+
+/* Ноутбуки и небольшие десктопы */
+@media (max-width: 1366px) {
+
+}

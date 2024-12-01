@@ -1,0 +1,34 @@
+.content {
+    height: 80vh;
+    width: 100%; /* Контейнер занимает всю ширину */
+    display: flex;
+    flex-direction: row; /* Ряды располагаются горизонтально */
+    background-color: azure;
+}
+
+.map {
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Мобильные устройства */
+@media (max-width: 480px) {
+
+}
+
+/* Смартфоны среднего размера */
+@media (max-width: 767px) {
+
+}
+
+/* Планшеты */
+@media (max-width: 1023px) {
+
+}
+
+/* Ноутбуки и небольшие десктопы */
+@media (max-width: 1366px) {
+
+}
+
