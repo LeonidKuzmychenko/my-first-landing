@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
 
                     <ul className={styles.socialMediaWrapper}>
                         {cards.map((card, index) => (
-                            <li className={styles.socialMedia}>
+                            <li key={card.alt} className={styles.socialMedia}>
                                 <img className={styles.socialMediaImage} src={card.src} alt={card.alt}/>
                             </li>
                         ))}
