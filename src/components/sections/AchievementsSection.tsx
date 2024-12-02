@@ -11,22 +11,22 @@ const AchievementsSection: React.FC = () => {
 
     const cards: Card[] = [
         {
-            src: "/images/AchivementsKachok.jpg",
+            src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`,
             title: "кубок 2021",
             text: "Крутой качок"
         },
         {
-            src: "/images/AchivementsKachok.jpg",
+            src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`,
             title: "кубок 2022",
             text: "Крутой качок"
         },
         {
-            src: "/images/AchivementsKachok.jpg",
+            src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`,
             title: "кубок 2023",
             text: "Крутой качок"
         },
         {
-            src: "/images/AchivementsKachok.jpg",
+            src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`,
             title: "кубок 2024",
             text: "Крутой качок"
         },

@@ -28,13 +28,10 @@ const App: React.FC = () => {
 
     return (
         <div style={styles.app}>
-            {/* Меню */}
             <Menu item={sections.map(item => ({id: item.id, title: item.title}))}/>
-            {/* Секции */}
             {sections.map(({id, content}) => (
                 <Section key={id} id={id} content={content}/>
             ))}
-            {/* Футер */}
             <Footer/>
         </div>
     );

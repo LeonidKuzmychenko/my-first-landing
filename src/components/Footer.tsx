@@ -10,11 +10,12 @@ const Footer: React.FC = () => {
 
     const cards: SocialCard[] = [
         {
-            src: "/icons/instagram-icon.webp",
+            src: `${process.env.PUBLIC_URL}/icons/instagram-icon.webp`,
             alt: "Instagram"
         },
         {
-            src: "/icons/tiktok-icon.png",
+            // src: "/icons/tiktok-icon.png",
+            src: `${process.env.PUBLIC_URL}/icons/tiktok-icon.png`,
             alt: "TikTok"
         }
     ];

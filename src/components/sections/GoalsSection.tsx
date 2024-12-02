@@ -11,17 +11,17 @@ const GoalsSection: React.FC = () => {
 
     const cards: Card[] = [
         {
-            src: "/images/AchivementsKachok.jpg",
+            src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`,
             title: "Похудение и красивые формы",
             text: "Большой опыт работы фитнес инструктором позволяет мне эффективно решать вопросы с лишним весом"
         },
         {
-            src: "/images/AchivementsKachok.jpg",
+            src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`,
             title: "Набор массы тела",
             text: "Как правильно набрать мышечную массу без вреда для суставов и связок. Современные методики тренировок"
         },
         {
-            src: "/images/AchivementsKachok.jpg",
+            src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`,
             title: "Составление питания",
             text: "Правильное питание - это 70% результата. Программы питания и четкий план, когда, сколько и что кушать"
         }

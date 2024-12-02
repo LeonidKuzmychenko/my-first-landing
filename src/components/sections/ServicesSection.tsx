@@ -17,7 +17,7 @@ const ServicesSection: React.FC = () => {
                 </div>
             </div>
             <div className={styles.imageWrapper}>
-                <img src={"/images/Respect.png"} className={styles.image} alt={"respect"}/>
+                <img src={`${process.env.PUBLIC_URL}/images/Respect.png`} className={styles.image} alt={"respect"}/>
             </div>
         </div>
     );
