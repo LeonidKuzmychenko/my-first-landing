@@ -8,6 +8,7 @@ import AchievementsSection from './components/sections/AchievementsSection';
 import ContactsSection from "./components/sections/ContactsSection";
 import GoalsSection from "./components/sections/GoalsSection";
 import NotFoundPage from "./components/NotFoundPage";
+import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 
 export interface SectionData {
     id: string;
@@ -28,24 +29,46 @@ const App: React.FC = () => {
     let path = window.location.pathname;
     console.log("path = " + path)
 
-    const content = <>
-        <div style={styles.app}>
-            <Menu item={sections.map(item => ({id: item.id, title: item.title}))}/>
-            {sections.map(({id, content}) => (
-                <Section key={id} id={id} content={content}/>
-            ))}
-            <Footer/>
-        </div>
-    </>
+    // const content = <>
+    //     <div style={styles.app}>
+    //         <Menu item={sections.map(item => ({id: item.id, title: item.title}))}/>
+    //         {sections.map(({id, content}) => (
+    //             <Section key={id} id={id} content={content}/>
+    //         ))}
+    //         <Footer/>
+    //     </div>
+    // </>
 
-    switch (path) {
-        case '/my-first-landing':
-            return content;
-        case '/my-first-landing/':
-            return content;
-        default:
-            return <NotFoundPage/>;
-    }
+    // switch (path) {
+    //     case '/my-first-landing':
+    //         return content;
+    //     case '/my-first-landing/':
+    //         return content;
+    //     default:
+    //         return <NotFoundPage/>;
+    // }
+
+    return (
+        <Router basename="/my-first-landing">
+            <div style={styles.app}>
+                {/*<Menu item={sections.map(({id, title}) => ({id, title}))}/>*/}
+                <Routes>
+                    <Route path="/" element={<>
+                        <Menu item={sections.map(item => ({id: item.id, title: item.title}))}/>
+                        {sections.map(({id, content}) => (
+                            <Section key={id} id={id} content={content}/>
+                        ))}
+                        <Footer/>
+                    </>}/>
+                    <Route path="/my-first-landing" element={<Navigate to="/"/>}/>
+                    <Route path="/my-first-landing/" element={<Navigate to="/"/>}/>
+                    <Route path="*" element={<NotFoundPage/>}/>
+                </Routes>
+
+                {/*<Footer/>*/}
+            </div>
+        </Router>
+    );
 };
 
 const styles = {
