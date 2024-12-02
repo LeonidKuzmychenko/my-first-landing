@@ -7,6 +7,7 @@ import ServicesSection from './components/sections/ServicesSection';
 import AchievementsSection from './components/sections/AchievementsSection';
 import ContactsSection from "./components/sections/ContactsSection";
 import GoalsSection from "./components/sections/GoalsSection";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 export interface SectionData {
     id: string;
@@ -27,13 +28,17 @@ const App: React.FC = () => {
     ];
 
     return (
-        <div style={styles.app}>
-            <Menu item={sections.map(item => ({id: item.id, title: item.title}))}/>
-            {sections.map(({id, content}) => (
-                <Section key={id} id={id} content={content}/>
-            ))}
-            <Footer/>
-        </div>
+        // <Router basename="/my-first-landing">
+        //     <Route path="/">
+                <div style={styles.app}>
+                    <Menu item={sections.map(item => ({ id: item.id, title: item.title }))} />
+                    {sections.map(({ id, content }) => (
+                        <Section key={id} id={id} content={content} />
+                    ))}
+                    <Footer />
+                </div>
+            // </Route>
+        // </Router>
     );
 };
 
