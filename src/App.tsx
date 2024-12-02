@@ -51,7 +51,6 @@ const App: React.FC = () => {
     return (
         <Router basename="/my-first-landing">
             <div style={styles.app}>
-                {/*<Menu item={sections.map(({id, title}) => ({id, title}))}/>*/}
                 <Routes>
                     <Route path="/" element={<>
                         <Menu item={sections.map(item => ({id: item.id, title: item.title}))}/>
@@ -64,8 +63,6 @@ const App: React.FC = () => {
                     <Route path="/my-first-landing/" element={<Navigate to="/"/>}/>
                     <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>
-
-                {/*<Footer/>*/}
             </div>
         </Router>
     );

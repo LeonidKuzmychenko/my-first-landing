@@ -13,80 +13,62 @@ interface MenuProps {
 const Menu: React.FC<MenuProps> = ({ item }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeId, setActiveId] = useState<string | null>(null);
-    const [isMenuOpen, setIsMenuOpen] = useState(false); // Стейт для управления видимостью меню на мобильных устройствах
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Оптимизация функции handleScroll с помощью useCallback
+    // Обработчик прокрутки: устанавливает флаг isScrolled
     const handleScroll = useCallback(() => {
         setIsScrolled(window.scrollY > 0);
     }, []);
 
+    // Обновление состояния isScrolled при прокрутке
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
 
-    // Используем Intersection Observer для отслеживания секций
+    // Отслеживание пересечения секций
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveId(entry.target.id);
-                    }
-                });
+                const visibleEntry = entries.find(entry => entry.isIntersecting);
+                if (visibleEntry) setActiveId(visibleEntry.target.id);
             },
-            {
-                root: null,
-                threshold: 0.6,
-            }
+            { threshold: 0.9 } // Срабатывает, если секция видна на 60%
         );
 
-        item.forEach(({ id }) => {
-            const section = document.getElementById(id);
-            if (section) observer.observe(section);
-        });
+        const sections = item.map(({ id }) => document.getElementById(id)).filter(Boolean);
+        sections.forEach(section => section && observer.observe(section as Element));
 
         return () => {
-            item.forEach(({ id }) => {
-                const section = document.getElementById(id);
-                if (section) observer.unobserve(section);
-            });
+            sections.forEach(section => section && observer.unobserve(section as Element));
         };
     }, [item]);
 
+    // Обработчик клика по бургер-меню
+    const toggleMenu = () => setIsMenuOpen(prev => !prev);
+
     return (
-        <nav id="topMenu" className={`${styles.nav} ${isScrolled ? styles.scrolled : styles.transparent}`}>
-            {/* Кнопка бургер-меню */}
+        <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : styles.transparent}`}>
+            {/* Бургер-кнопка для мобильных устройств */}
             <button
                 className={`${styles.burgerButton} ${isMenuOpen ? styles.open : ''}`}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={toggleMenu}
+                aria-label="Toggle menu"
             >
                 <span className={styles.burgerIcon}></span>
             </button>
 
+            {/* Ссылки меню */}
             <div className={`${styles.menu} ${isMenuOpen ? styles.open : ''}`}>
                 {item.map(({ id, title }) => (
-                    <button
+                    <a
                         key={id}
-                        onClick={() => {
-                            const element = document.getElementById(id);
-                            const menu = document.getElementById("topMenu");
-
-                            if (element && menu) {
-                                const menuHeight = menu.offsetHeight;
-                                const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-                                const offsetPosition = elementPosition - menuHeight;
-
-                                window.scrollTo({
-                                    top: offsetPosition,
-                                    behavior: 'smooth',
-                                });
-                            }
-                        }}
+                        href={`#${id}`}
                         className={`${styles.button} ${activeId === id ? styles.active : ''}`}
+                        onClick={() => setIsMenuOpen(false)} // Закрытие меню после клика
                     >
                         {title}
-                    </button>
+                    </a>
                 ))}
             </div>
         </nav>
