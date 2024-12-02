@@ -7,7 +7,7 @@ import ServicesSection from './components/sections/ServicesSection';
 import AchievementsSection from './components/sections/AchievementsSection';
 import ContactsSection from "./components/sections/ContactsSection";
 import GoalsSection from "./components/sections/GoalsSection";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import NotFoundPage from "./components/NotFoundPage";
 
 export interface SectionData {
     id: string;
@@ -17,29 +17,28 @@ export interface SectionData {
 
 const App: React.FC = () => {
     document.title = "Персональный тренер Степан Бандера"
-    // Данные для секций
     const sections: SectionData[] = [
         {id: 'home', title: 'Главная', content: <HomeSection/>},
         {id: 'goals', title: 'Цели', content: <GoalsSection/>},
         {id: 'services', title: 'Услуги', content: <ServicesSection/>},
-        // {id: 'about', title: 'Обо мне', content: <AboutSection/>},
         {id: 'achievements', title: 'Достижения', content: <AchievementsSection/>},
         {id: 'contacts', title: 'Контакты', content: <ContactsSection/>}
     ];
 
-    return (
-        // <Router basename="/my-first-landing">
-        //     <Route path="/">
+    switch (window.location.pathname) {
+        case '/my-first-landing':
+            return <>
                 <div style={styles.app}>
-                    <Menu item={sections.map(item => ({ id: item.id, title: item.title }))} />
-                    {sections.map(({ id, content }) => (
-                        <Section key={id} id={id} content={content} />
+                    <Menu item={sections.map(item => ({id: item.id, title: item.title}))}/>
+                    {sections.map(({id, content}) => (
+                        <Section key={id} id={id} content={content}/>
                     ))}
-                    <Footer />
+                    <Footer/>
                 </div>
-            // </Route>
-        // </Router>
-    );
+            </>;
+        default:
+            return <NotFoundPage/>; // Если маршрут неизвестен
+    }
 };
 
 const styles = {
