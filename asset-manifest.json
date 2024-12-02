@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/my-first-landing/static/css/main.8015636d.css",
-    "main.js": "/my-first-landing/static/js/main.5b9df896.js",
+    "main.css": "/my-first-landing/static/css/main.8395812f.css",
+    "main.js": "/my-first-landing/static/js/main.e41d2ae5.js",
     "static/media/HomeGym.jpg": "/my-first-landing/static/media/HomeGym.9036e266899be63bfb2b.jpg",
     "index.html": "/my-first-landing/index.html",
-    "main.8015636d.css.map": "/my-first-landing/static/css/main.8015636d.css.map",
-    "main.5b9df896.js.map": "/my-first-landing/static/js/main.5b9df896.js.map"
+    "main.8395812f.css.map": "/my-first-landing/static/css/main.8395812f.css.map",
+    "main.e41d2ae5.js.map": "/my-first-landing/static/js/main.e41d2ae5.js.map"
   },
   "entrypoints": [
-    "static/css/main.8015636d.css",
-    "static/js/main.5b9df896.js"
+    "static/css/main.8395812f.css",
+    "static/js/main.e41d2ae5.js"
   ]
 }
