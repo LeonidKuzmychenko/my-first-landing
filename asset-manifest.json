@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/my-first-landing/static/css/main.c83ee226.css",
+    "main.js": "/my-first-landing/static/js/main.d9351375.js",
+    "static/media/HomeGym.jpg": "/my-first-landing/static/media/HomeGym.9036e266899be63bfb2b.jpg",
+    "index.html": "/my-first-landing/index.html",
+    "main.c83ee226.css.map": "/my-first-landing/static/css/main.c83ee226.css.map",
+    "main.d9351375.js.map": "/my-first-landing/static/js/main.d9351375.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c83ee226.css",
+    "static/js/main.d9351375.js"
+  ]
+}
