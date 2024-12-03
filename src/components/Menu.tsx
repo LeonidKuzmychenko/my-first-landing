@@ -50,13 +50,13 @@ const Menu: React.FC<MenuProps> = ({ item }) => {
     return (
         <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : styles.transparent}`}>
             {/* Бургер-кнопка для мобильных устройств */}
-            <button
+            <a
                 className={`${styles.burgerButton} ${isMenuOpen ? styles.open : ''}`}
                 onClick={toggleMenu}
                 aria-label="Toggle menu"
             >
                 <span className={styles.burgerIcon}></span>
-            </button>
+            </a>
 
             {/* Ссылки меню */}
             <div className={`${styles.menu} ${isMenuOpen ? styles.open : ''}`}>

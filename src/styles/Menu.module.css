@@ -1,13 +1,23 @@
-/* Базовые стили для меню */
 .nav {
     position: fixed;
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: center;
-    padding: 10px 0;
+    justify-content: end;
+    align-items: center;
     z-index: 1000;
     transition: background-color 0.3s ease;
+    height: 64px;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
 }
 
 .transparent {
@@ -16,18 +26,15 @@
 
 .scrolled {
     background-color: dimgray;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .button {
-    margin: 0 10px;
     padding: 10px 20px;
     color: white;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
     transition: color 0.3s ease, background-color 0.3s ease;
+    text-align: center;
 }
 
 .button:hover {
@@ -35,19 +42,15 @@
 }
 
 .active {
-    color: #fff;
     font-weight: bold;
 }
 
-/* Стили бургер-меню */
 .burgerButton {
-    display: none; /* Скрыто по умолчанию */
-    background: none;
-    border: none;
+    display: none;
     cursor: pointer;
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     z-index: 2000;
 }
 
@@ -62,8 +65,7 @@
     transition: all 0.3s ease;
 }
 
-.burgerIcon::before,
-.burgerIcon::after {
+.burgerIcon::before, .burgerIcon::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -94,46 +96,33 @@
     top: 0;
 }
 
-/* Меню */
-.menu {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-/* Мобильная версия */
 @media (max-width: 480px) {
-    /* Показываем кнопку бургер-меню */
+
     .burgerButton {
-        display: block;
+        display: flex;
     }
 
-    /* Меню скрыто по умолчанию */
     .menu {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 64px;
         left: 0;
         right: 0;
         background-color: #333;
-        padding: 10px;
-        border-radius: 5px;
-        z-index: 1000;
     }
 
-    /* При открытом меню показываем его */
     .menu.open {
         display: flex;
     }
+}
 
-    .button {
-        margin: 5px 0;
-        font-size: 18px;
+@media (max-width: 767px) {
+    .menu {
+        gap: 5px;
     }
 
-    .button:hover {
-        text-decoration: none;
+    .button {
+        padding: 10px 15px;
     }
 }
