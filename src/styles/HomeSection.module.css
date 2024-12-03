@@ -25,8 +25,8 @@
 
 /* Мобильные устройства */
 @media (max-width: 375px) {
-    .title {
-        /*display: none;*/
+    .titlePart {
+        display: none;
     }
 }
 

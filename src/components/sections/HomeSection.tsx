@@ -5,7 +5,7 @@ const HomeSection: React.FC = () => {
     return (
         <div className={styles.content}>
             <div className={styles.titleWrapper}>
-                <h1 className={styles.title}><span>Персональный тренер</span><span>Степан Бандера</span></h1>
+                <h1 className={styles.title}><span className={styles.titlePart}>Персональный тренер</span><span>Степан Бандера</span></h1>
             </div>
         </div>
     );
