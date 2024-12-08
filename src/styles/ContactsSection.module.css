@@ -1,5 +1,5 @@
 .content {
-    height: 80vh;
+    height: calc(100vh - 120px - 64px);
     width: 100%; /* Контейнер занимает всю ширину */
     display: flex;
     flex-direction: row; /* Ряды располагаются горизонтально */

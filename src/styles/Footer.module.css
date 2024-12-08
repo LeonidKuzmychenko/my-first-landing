@@ -4,7 +4,7 @@
     color: #ffffff;
     display: flex;
     flex-direction: column;
-    /*height: 132px;*/
+    min-height: 120px;
     gap: 10px;
 }
 

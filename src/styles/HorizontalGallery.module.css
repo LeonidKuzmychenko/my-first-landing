@@ -5,7 +5,9 @@
     max-width: 100%;
     overflow: hidden;
     padding: 40px;
-    border-top: 1px gray outset;
+    /*border-top: 1px gray outset;*/
+    background-color: #333333;
+    color: white;
 }
 
 .title {
@@ -41,8 +43,10 @@
 .galleryImage {
     text-align: center;
     /*width: 100%;*/
-    height: 100%;
-    object-fit: cover;
+    /*height: 100%;*/
+    /*object-fit: cover;*/
+    height: auto; /* Высота подстраивается автоматически */
+    object-fit: contain; /* Сохраняет пропорции, подстраивает под размеры родителя */
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -63,7 +67,7 @@
     width: 12px;
     height: 12px;
     margin: 0 5px;
-    background-color: #bbb;
+    background-color: #666;
     border-radius: 50%;
     border: none;
     cursor: pointer;
@@ -75,7 +79,7 @@
 }
 
 .dot.active {
-    background-color: #333;
+    background-color: white;
 }
 
 .dot:focus {

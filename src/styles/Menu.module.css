@@ -98,6 +98,9 @@
 
 @media (max-width: 480px) {
 
+}
+
+@media (max-width: 767px) {
     .burgerButton {
         display: flex;
     }
@@ -114,15 +117,5 @@
 
     .menu.open {
         display: flex;
-    }
-}
-
-@media (max-width: 767px) {
-    .menu {
-        gap: 5px;
-    }
-
-    .button {
-        padding: 10px 15px;
     }
 }
