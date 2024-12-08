@@ -1,8 +1,8 @@
 .content {
     height: 600px;
     width: 100%;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 160px;
+    padding-right: 160px;
     display: flex;
     background-color: #333333;
     font-size: 30px;

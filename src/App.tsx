@@ -9,6 +9,7 @@ import ContactsSection from "./components/sections/ContactsSection";
 import GoalsSection from "./components/sections/GoalsSection";
 import NotFoundPage from "./components/NotFoundPage";
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
+import HorizontalGallery from "./components/sections/HorizontalGallery";
 
 export interface SectionData {
     id: string;
@@ -23,6 +24,7 @@ const App: React.FC = () => {
         {id: 'goals', title: 'Цели', content: <GoalsSection/>},
         {id: 'services', title: 'Услуги', content: <ServicesSection/>},
         {id: 'achievements', title: 'Достижения', content: <AchievementsSection/>},
+        {id: 'clients', title: 'Клиенты', content: <HorizontalGallery/>},
         {id: 'contacts', title: 'Контакты', content: <ContactsSection/>}
     ];
 
