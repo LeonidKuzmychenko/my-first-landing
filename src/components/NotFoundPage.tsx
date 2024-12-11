@@ -27,7 +27,7 @@ const NotFoundPage: React.FC = () => (
         </Text>
         <Link
             href="/my-first-landing"
-            className="text-[#007BFF] no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:underline"
+            className="text-[#007BFF] no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:underline"
             aria-label="Вернуться на главную страницу"
         >
             Вернуться на главную

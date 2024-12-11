@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
         direction="column"
         align="center"
         gap="10px"
-        className="w-[300px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        className="w-[300px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
         aria-labelledby={`card-title-${title}`}
         tabIndex={0} // Makes the card focusable
         role="listitem"
