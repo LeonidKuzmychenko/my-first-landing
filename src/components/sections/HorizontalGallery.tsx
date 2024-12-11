@@ -19,7 +19,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, alt }) => (
             src={src}
             id={`gallery-image-${index}`}
             alt={alt}
-            className="h-auto object-contain rounded-lg transition-transform ease-in-out duration-300"
+            className="w-full h-full max-w-full max-h-full object-contain rounded-lg transition-transform ease-in-out duration-300"
         />
     </div>
 );
