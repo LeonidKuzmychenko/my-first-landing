@@ -6,13 +6,15 @@ import "@radix-ui/themes/styles.css";
 import {Theme} from "@radix-ui/themes";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 
 root.render(
-  <React.StrictMode>
-      <Theme>
-          <App />
-      </Theme>
-  </React.StrictMode>
+    <React.StrictMode>
+        <Theme>
+            <App
+                aria-label="Приложение Персональный тренер Степан Бандера"
+            />
+        </Theme>
+    </React.StrictMode>
 );
