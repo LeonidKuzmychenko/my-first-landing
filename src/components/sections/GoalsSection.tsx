@@ -13,18 +13,45 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
         direction="column"
         align="center"
         gap="10px"
-        className="w-[300px]"
+        className="w-[300px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         aria-labelledby={`card-title-${title}`}
+        tabIndex={0} // Makes the card focusable
+        role="listitem"
+        onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const link = document.getElementById(`card-link-${title}`);
+                link?.click();
+            }
+        }}
     >
         <AspectRatio ratio={1} className="w-full rounded-full overflow-hidden">
-            <img src={src} alt={title} className="w-full h-full object-cover" />
+            <img
+                src={src}
+                alt={`Изображение для цели: ${title}`}
+                className="w-full h-full object-cover"
+            />
         </AspectRatio>
-        <Heading as="h3" align="center" id={`card-title-${title}`} className="text-lg font-bold">
+        <Heading
+            as="h3"
+            align="center"
+            id={`card-title-${title}`}
+            className="text-lg font-bold"
+        >
             {title}
         </Heading>
-        <Text align="center" className="text-center text-gray-600">
+        <Text
+            align="center"
+            className="text-center text-gray-600"
+        >
             {text}
         </Text>
+        <a
+            id={`card-link-${title}`}
+            href={`#goal-${title}`}
+            className="sr-only"
+        >
+            Подробнее о цели: {title}
+        </a>
     </Flex>
 );
 
@@ -50,8 +77,8 @@ const GoalsSection: React.FC = () => {
     return (
         <Flex
             direction="column"
-            align={"center"}
-            gap={"40px"}
+            align="center"
+            gap="40px"
             className="w-full p-10"
             aria-labelledby="goals-section-title"
         >
@@ -59,14 +86,17 @@ const GoalsSection: React.FC = () => {
                 as="h2"
                 align="center"
                 id="goals-section-title"
+                className="text-3xl font-bold"
             >
                 Персональные тренировки — лучший выбор для вас и вашего тела
             </Heading>
 
             <Flex
-                justify={"center"}
-                wrap={"wrap"}
-                gap={"40px"}
+                justify="center"
+                wrap="wrap"
+                gap="40px"
+                role="list"
+                aria-label="Список целей персональных тренировок"
             >
                 {cards.map((card, index) => (
                     <Card
