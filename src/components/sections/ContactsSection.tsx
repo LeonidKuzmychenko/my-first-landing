@@ -1,20 +1,17 @@
 import React from 'react';
-import {Flex, Heading} from "@radix-ui/themes";
 
 const ContactsSection: React.FC = () => {
     return (
-        <Flex
-            direction="column"
-            className="w-full h-[calc(100vh-170px-64px)]"
+        <div
+            className="flex flex-col w-full h-[calc(100vh-170px-64px)]"
             aria-labelledby="contacts-title"
         >
-            <Heading
-                as={"h2"}
+            <h2
                 id="contacts-title"
                 className="sr-only"
             >
                 Местоположение
-            </Heading>
+            </h2>
 
             <iframe
                 className="border-0 w-full h-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
@@ -23,12 +20,12 @@ const ContactsSection: React.FC = () => {
                 height="450"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen={true}
+                allowFullScreen
                 title="Google Maps - местоположение Спорт Студио 55"
                 role="application"
                 tabIndex={0}
             ></iframe>
-        </Flex>
+        </div>
     );
 };
 
