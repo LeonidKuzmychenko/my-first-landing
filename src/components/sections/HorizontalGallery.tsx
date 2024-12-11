@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import * as ScrollArea from '@radix-ui/react-scroll-area';
-import * as RadioGroup from '@radix-ui/react-radio-group';
-import {Flex, Heading} from '@radix-ui/themes';
-import Header from "../Header";
 
 interface GalleryItemProps {
     src: string;
@@ -62,35 +58,38 @@ const HorizontalGallery: React.FC = () => {
             className="relative w-full max-w-full overflow-hidden p-10 bg-gray-800 text-white"
             aria-labelledby="gallery-title"
         >
-            <Heading as={"h2"} id="gallery-title" className="text-center mb-5">
+            <h2 id="gallery-title" className="text-center mb-5 text-2xl font-bold">
                 Спортивные достижения клиентов
-            </Heading>
+            </h2>
 
-            <ScrollArea.Root className="relative w-full h-[500px] overflow-hidden rounded-lg" id="gallery-scrollarea">
-                <Flex className="flex w-full h-full" direction="row">
+            <div
+                className="relative w-full h-[500px] overflow-hidden rounded-lg"
+                id="gallery-scrollarea"
+            >
+                <div className="flex w-full h-full">
                     {images.map((image, index) => (
                         <GalleryItem key={index} src={image} index={index} alt={`Gallery image ${index + 1}`} />
                     ))}
-                </Flex>
-            </ScrollArea.Root>
+                </div>
+            </div>
 
-            <RadioGroup.Root
+            <div
                 className="flex justify-center mt-4 gap-3"
-                value={String(activeIndex)}
-                onValueChange={(value) => handleDotClick(Number(value))}
                 aria-label="Gallery navigation"
             >
                 {images.map((_, index) => (
-                    <RadioGroup.Item
+                    <button
                         key={index}
-                        value={String(index)}
+                        onClick={() => handleDotClick(index)}
                         className={`w-3.5 h-3.5 bg-gray-600 rounded-full cursor-pointer relative flex items-center justify-center transition-colors duration-300 transform ${index === activeIndex ? 'bg-white' : 'hover:bg-gray-500'}`}
                         aria-label={`Go to image ${index + 1}`}
                     >
-                        <div className={`w-2 h-2 bg-white rounded-full transition-opacity ${index === activeIndex ? 'opacity-100' : 'opacity-0'}`}></div>
-                    </RadioGroup.Item>
+                        <div
+                            className={`w-2 h-2 bg-white rounded-full transition-opacity ${index === activeIndex ? 'opacity-100' : 'opacity-0'}`}
+                        ></div>
+                    </button>
                 ))}
-            </RadioGroup.Root>
+            </div>
         </section>
     );
 };
