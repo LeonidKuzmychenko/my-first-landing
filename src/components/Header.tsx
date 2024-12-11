@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 interface MenuItem {
     id: string;
@@ -9,7 +9,7 @@ interface MenuProps {
     items: MenuItem[];
 }
 
-const Header: React.FC<MenuProps> = ({items}) => {
+const Header: React.FC<MenuProps> = ({ items }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeId, setActiveId] = useState<string | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,28 +22,50 @@ const Header: React.FC<MenuProps> = ({items}) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Отслеживание пересечения секций
+    // Отслеживание пересечения секций с разным threshold для разных экранов
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        setActiveId(entry.target.id);
-                    }
-                });
-            },
-            {threshold: 0.2} // Срабатывает, если секция видна на 70%
-        );
+        let observer: IntersectionObserver;
 
-        const sections = items.map(({id}) => document.getElementById(id)).filter(Boolean);
+        const createObserver = () => {
+            const threshold = window.innerWidth < 768 ? 0.1 : 0.3;
 
-        if (sections.length === 0) {
-            console.warn('No sections found for provided item ids:', items);
-        }
+            observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setActiveId(entry.target.id);
+                        }
+                    });
+                },
+                { threshold }
+            );
 
-        sections.forEach(section => section && observer.observe(section as Element));
+            const sections = items.map(({ id }) => document.getElementById(id)).filter(Boolean);
 
-        return () => sections.forEach(section => section && observer.unobserve(section as Element));
+            if (sections.length === 0) {
+                console.warn('No sections found for provided item ids:', items);
+            }
+
+            sections.forEach(section => section && observer.observe(section as Element));
+        };
+
+        createObserver();
+
+        const handleResize = () => {
+            // Удаляем старый observer при изменении ширины экрана
+            observer.disconnect();
+            createObserver();
+            if (window.innerWidth >= 768) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            observer.disconnect();
+            window.removeEventListener('resize', handleResize);
+        };
     }, [items]);
 
     // Обработчик клика по бургер-меню
@@ -51,17 +73,6 @@ const Header: React.FC<MenuProps> = ({items}) => {
 
     // Закрытие меню после клика на элемент
     const handleLinkClick = useCallback(() => setIsMenuOpen(false), []);
-
-    // Сброс состояния меню при изменении ширины экрана
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 768) {
-                setIsMenuOpen(false);
-            }
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
 
     return (
         <header
@@ -88,7 +99,7 @@ const Header: React.FC<MenuProps> = ({items}) => {
                                ${isMenuOpen ? 'flex absolute top-16 left-0 right-0 bg-neutral-800' : 'hidden md:flex'}`}
                     role="menubar"
                 >
-                    {items.map(({id, title}, index) => (
+                    {items.map(({ id, title }, index) => (
                         <li
                             key={id}
                             role="none"
