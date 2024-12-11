@@ -1,8 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import styles from '../styles/Header.module.css';
 import {Cross1Icon, HamburgerMenuIcon} from '@radix-ui/react-icons';
 import * as Toggle from "@radix-ui/react-toggle";
-import {Box, Flex} from "@radix-ui/themes";
 
 interface MenuItem {
     id: string;
@@ -57,28 +55,28 @@ const Header: React.FC<MenuProps> = ({items}) => {
     const handleLinkClick = useCallback(() => setIsMenuOpen(false), []);
 
     return (
-        <header className={`${styles.header} ${isScrolled ? styles.scrolled : styles.transparent}`}>
-            <nav className={styles.nav}>
+        <header className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center ${isScrolled ? 'bg-gray-600 shadow-md' : 'bg-transparent'}`}>
+            <nav className="flex justify-end items-center transition-colors duration-300 text-white w-full">
                 {/* Бургер-кнопка для мобильных устройств */}
                 <Toggle.Root
                     type="button"
-                    className={`${styles.burgerButton} ${isMenuOpen ? styles.open : ''}`}
+                    className={`relative w-10 h-10 flex md:hidden justify-center items-center`}
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
                 >
                     {isMenuOpen ?
-                        <Cross1Icon className={styles.burgerIcon}/> :
-                        <HamburgerMenuIcon className={styles.burgerIcon}/>
+                        <Cross1Icon className="w-full h-full text-white" /> :
+                        <HamburgerMenuIcon className="w-full h-full text-white" />
                     }
                 </Toggle.Root>
 
                 {/* Ссылки меню */}
-                <div className={`${styles.menu} ${isMenuOpen ? styles.open : ''}`}>
+                <div className={`md:flex flex-col md:flex-row justify-center gap-5 w-full ${isMenuOpen ? 'flex absolute top-16 left-0 right-0 bg-gray-800' : 'hidden md:flex'}`}>
                     {items.map(({id, title}) => (
                         <a
                             key={id}
                             href={`#${id}`}
-                            className={`${styles.button} ${activeId === id ? styles.active : ''}`}
+                            className={`py-2 px-4 text-white cursor-pointer text-center hover:underline ${activeId === id ? 'font-bold' : ''}`}
                             onClick={handleLinkClick}
                         >
                             {title}
