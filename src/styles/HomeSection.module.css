@@ -1,9 +1,0 @@
-/* Основные стили для секции */
-.content {
-    background-image: url("../images/HomeGym.jpg");
-    background-size: cover;
-    background-position: center;
-    /*height: 100vh;*/
-    /*width: 100%;*/
-    /*color: white;*/
-}
