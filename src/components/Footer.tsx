@@ -84,9 +84,7 @@ const Footer: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div
-                    className="flex justify-center items-end flex-1"
-                >
+                <div className="flex justify-center items-end flex-1 text-center">
                     <p tabIndex={0} aria-label="Авторские права">
                         Copyright © 2024. Created by Грыня Господень
                     </p>

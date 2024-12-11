@@ -64,7 +64,11 @@ const Header: React.FC<MenuProps> = ({items}) => {
     }, []);
 
     return (
-        <header className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center ${isScrolled ? 'bg-neutral-800 shadow-md' : 'bg-transparent'}`} aria-label="Main Navigation">
+        <header
+            className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center 
+                        ${isScrolled || isMenuOpen ? 'bg-neutral-800 shadow-md' : 'bg-transparent'}`}
+            aria-label="Main Navigation"
+        >
             <nav className="flex justify-end items-center transition-colors duration-300 text-white w-full" role="navigation">
                 <button
                     type="button"
@@ -73,12 +77,33 @@ const Header: React.FC<MenuProps> = ({items}) => {
                     aria-expanded={isMenuOpen}
                     aria-label="Toggle menu"
                 >
-                    <span className="block w-full h-full bg-white" />
+                    <img
+                        src={isMenuOpen ? `${process.env.PUBLIC_URL}/icons/close-btn.svg` : `${process.env.PUBLIC_URL}/icons/menu-btn.svg`}
+                        alt={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+                        className="w-full h-full object-contain"
+                    />
                 </button>
-                <ul className={`py-2 md:flex flex-col md:flex-row justify-center w-full ${isMenuOpen ? 'flex absolute top-16 left-0 right-0 bg-neutral-800' : 'hidden md:flex'}`} role="menubar">
+                <ul
+                    className={`py-2 md:flex flex-col md:flex-row justify-center w-full 
+                               ${isMenuOpen ? 'flex absolute top-16 left-0 right-0 bg-neutral-800' : 'hidden md:flex'}`}
+                    role="menubar"
+                >
                     {items.map(({id, title}, index) => (
-                        <li key={id} role="none" onClick={handleLinkClick} className={`cursor-pointer py-2 px-4 hover:underline ${activeId === id ? 'font-bold' : ''}`}>
-                            <a href={`#${id}`} className="text-white text-center w-full h-full block" tabIndex={0} role="menuitem" aria-current={activeId === id ? 'page' : undefined}>{title}</a>
+                        <li
+                            key={id}
+                            role="none"
+                            onClick={handleLinkClick}
+                            className={`cursor-pointer py-2 px-4 hover:underline ${activeId === id ? 'font-bold' : ''}`}
+                        >
+                            <a
+                                href={`#${id}`}
+                                className="text-white text-center w-full h-full block"
+                                tabIndex={0}
+                                role="menuitem"
+                                aria-current={activeId === id ? 'page' : undefined}
+                            >
+                                {title}
+                            </a>
                         </li>
                     ))}
                 </ul>

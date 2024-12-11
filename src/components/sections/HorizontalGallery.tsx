@@ -8,7 +8,7 @@ interface GalleryItemProps {
 
 const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, alt }) => (
     <div
-        className="flex flex-shrink-0 justify-center items-center w-full h-[500px] scroll-snap-center"
+        className="flex flex-shrink-0 justify-center items-center w-full scroll-snap-center"
         role="tabpanel"
         aria-labelledby={`gallery-image-${index}`}
     >
@@ -55,7 +55,7 @@ const HorizontalGallery: React.FC = () => {
 
     return (
         <section
-            className="flex flex-col gap-10 direction-corelative w-full max-w-full overflow-hidden p-10 bg-neutral-800 text-white"
+            className="flex flex-col gap-10 direction-corelative w-full h-[600px] md:h-[800px] max-w-full overflow-hidden p-10 bg-neutral-800 text-white"
             aria-labelledby="gallery-title"
         >
             <h2
@@ -66,7 +66,7 @@ const HorizontalGallery: React.FC = () => {
             </h2>
 
             <div
-                className="relative w-full h-[500px] overflow-hidden rounded-lg"
+                className="relative w-full overflow-hidden rounded-lg"
                 id="gallery-scrollarea"
             >
                 <div className="flex w-full h-full">

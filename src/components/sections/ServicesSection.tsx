@@ -3,47 +3,27 @@ import React from 'react';
 const ServicesSection: React.FC = () => {
     return (
         <div
-            className="flex h-[600px] bg-neutral-800 text-white"
+            className="flex h-[400px] md:h-[600px] bg-neutral-800 text-white"
             aria-labelledby="services-section-title"
             role="region"
         >
-            <div
-                className="flex items-center justify-center h-full w-full"
-            >
-                <div
-                    className="flex items-center h-full p-10"
-                >
-                    <div className="flex flex-col gap-5">
-                        <h2
-                            id="services-section-title"
-                            className="text-3xl font-bold"
-                        >
-                            <div className="flex flex-col text-end">
-                                <span
-                                    tabIndex={0}
-                                    aria-label="Отправь заявку сейчас"
-                                >
+            <div className="flex items-center justify-center h-full w-full">
+                <div className="flex items-center h-full p-10">
+                    <div className="flex flex-col gap-10 md:gap-5">
+                        <h2 id="services-section-title" className="text-3xl font-bold">
+                            <div className="flex flex-col text-center md:text-end">
+                                <span tabIndex={0} aria-label="Отправь заявку сейчас">
                                     Отправь заявку сейчас
                                 </span>
-                                <span
-                                    tabIndex={0}
-                                    aria-label="и получи"
-                                >
+                                <span tabIndex={0} aria-label="и получи">
                                     и получи
                                 </span>
-                                <span
-                                    tabIndex={0}
-                                    aria-label="Бесплатную Тренировку"
-                                >
+                                <span tabIndex={0} aria-label="Бесплатную Тренировку">
                                     Бесплатную Тренировку
                                 </span>
                             </div>
                         </h2>
-                        <ul
-                            role="list"
-                            aria-label="Список бесплатных услуг"
-                            className="flex flex-col text-end"
-                        >
+                        <ul role="list" aria-label="Список бесплатных услуг" className="flex flex-col text-center md:text-end">
                             <li
                                 role="listitem"
                                 tabIndex={0}
@@ -68,7 +48,7 @@ const ServicesSection: React.FC = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="h-full">
+                <div className="h-full hidden md:block">
                     <img
                         src={`${process.env.PUBLIC_URL}/images/Respect.png`}
                         className="h-full w-full object-cover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
