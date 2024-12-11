@@ -1,16 +1,22 @@
-.nav {
+.header {
     position: fixed;
     top: 0;
+    height: 64px;
     width: 100%;
+    display: flex;
+    z-index: 1000;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
     display: flex;
     justify-content: end;
     align-items: center;
-    z-index: 1000;
     transition: background-color 0.3s ease;
-    height: 64px;
     color: #fff;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .menu {
@@ -51,7 +57,6 @@
     position: relative;
     width: 40px;
     height: 40px;
-    z-index: 2000;
 }
 
 .burgerIcon {
@@ -101,6 +106,11 @@
 }
 
 @media (max-width: 767px) {
+
+    .header{
+        justify-content: end;
+        /*align-items: end;*/
+    }
     .burgerButton {
         display: flex;
     }

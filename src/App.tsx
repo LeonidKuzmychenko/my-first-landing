@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from './components/Menu';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import HomeSection from './components/sections/HomeSection';
 import ServicesSection from './components/sections/ServicesSection';
@@ -9,7 +9,7 @@ import GoalsSection from "./components/sections/GoalsSection";
 import NotFoundPage from "./components/NotFoundPage";
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 import HorizontalGallery from "./components/sections/HorizontalGallery";
-import {Box, Flex} from "@radix-ui/themes";
+import {Box, Flex, Section} from "@radix-ui/themes";
 
 export interface SectionData {
     id: string;
@@ -33,15 +33,17 @@ const App: React.FC = () => {
             <Flex direction={"column"} className={"min-h-screen"}>
                 <Routes>
                     <Route path="/" element={
-                        <Box>
-                            <Menu item={sections.map(item => ({id: item.id, title: item.title}))}/>
-                            {sections.map(({id, content}) => (
-                                <Box key={id} id={id}>
-                                    {content}
-                                </Box>
-                            ))}
+                        <>
+                            <Header items={sections.map(item => ({id: item.id, title: item.title}))}/>
+                            <main>
+                                {sections.map(({id, content}) => (
+                                    <Section p={"0"} key={id} id={id}>
+                                        {content}
+                                    </Section>
+                                ))}
+                            </main>
                             <Footer/>
-                        </Box>
+                        </>
                     }/>
                     <Route path="/my-first-landing" element={<Navigate to="/"/>}/>
                     <Route path="/my-first-landing/" element={<Navigate to="/"/>}/>
