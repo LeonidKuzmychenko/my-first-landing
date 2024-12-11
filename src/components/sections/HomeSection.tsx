@@ -1,50 +1,39 @@
 import React from 'react';
-import {Flex, Heading, Text} from "@radix-ui/themes";
 
 const HomeSection: React.FC = () => {
     const backgroundUrl = `${process.env.PUBLIC_URL}/images/HomeGym.jpg`;
 
     return (
-        <Flex
+        <div
             style={{backgroundImage: `url(${backgroundUrl})`}}
-            justify="center"
-            align="center"
-            className="h-screen w-full text-white bg-cover bg-center"
+            className="flex justify-center items-center h-screen w-full text-white bg-cover bg-center"
             aria-labelledby="home-section-title"
         >
-            <Flex
-                align="center"
-                justify="center"
-                direction="column"
+            <div
                 role="banner"
-                className="h-full w-full"
+                className="flex flex-col items-center justify-center h-full w-full"
             >
-                <Heading
-                    as="h1"
+                <h1
                     id="home-section-title"
                     className="text-4xl font-bold text-center"
                 >
-                    <Flex
-                        direction="column"
-                        align="center"
-                        className="text-center"
-                    >
-                        <Text
+                    <div className="flex flex-col items-center text-center">
+                        <p
                             className="text-2xl font-semibold"
                             tabIndex={0}
                             aria-label="Профессия: Персональный тренер"
                         >
                             Персональный тренер
-                        </Text>
-                        <Text
+                        </p>
+                        <p
                             className="text-3xl font-bold"
                             tabIndex={0}
                             aria-label="Имя тренера: Степан Бандера"
                         >
                             Степан Бандера
-                        </Text>
-                    </Flex>
-                </Heading>
+                        </p>
+                    </div>
+                </h1>
 
                 <a
                     href="#goals"
@@ -53,8 +42,8 @@ const HomeSection: React.FC = () => {
                 >
                     Узнать больше
                 </a>
-            </Flex>
-        </Flex>
+            </div>
+        </div>
     );
 };
 
