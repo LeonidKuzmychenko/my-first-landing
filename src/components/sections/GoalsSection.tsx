@@ -1,6 +1,4 @@
 import React from 'react';
-import { AspectRatio } from '@radix-ui/react-aspect-ratio';
-import { Flex, Heading, Text } from '@radix-ui/themes';
 
 interface CardProps {
     src: string;
@@ -9,13 +7,10 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ src, title, text }) => (
-    <Flex
-        direction="column"
-        align="center"
-        gap="10px"
-        className="w-[300px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500"
+    <div
+        className="flex flex-col items-center gap-2.5 w-72 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500"
         aria-labelledby={`card-title-${title}`}
-        tabIndex={0} // Makes the card focusable only via keyboard (not mouse)
+        tabIndex={0}
         role="listitem"
         onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -24,27 +19,24 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
             }
         }}
     >
-        <AspectRatio ratio={1} className="w-full rounded-full overflow-hidden">
+        <div
+            className="w-full aspect-square rounded-full overflow-hidden"
+        >
             <img
                 src={src}
                 alt={`Изображение для цели: ${title}`}
                 className="w-full h-full object-cover pointer-events-none"
             />
-        </AspectRatio>
-        <Heading
-            as="h3"
-            align="center"
+        </div>
+        <h3
             id={`card-title-${title}`}
-            className="text-lg font-bold pointer-events-none"
+            className="text-lg font-bold text-center pointer-events-none"
         >
             {title}
-        </Heading>
-        <Text
-            align="center"
-            className="text-center text-gray-600 pointer-events-none"
-        >
+        </h3>
+        <p className="text-center text-gray-600 pointer-events-none">
             {text}
-        </Text>
+        </p>
         <a
             id={`card-link-${title}`}
             href={`#goal-${title}`}
@@ -52,7 +44,7 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
         >
             Подробнее о цели: {title}
         </a>
-    </Flex>
+    </div>
 );
 
 const GoalsSection: React.FC = () => {
@@ -75,29 +67,12 @@ const GoalsSection: React.FC = () => {
     ];
 
     return (
-        <Flex
-            direction="column"
-            align="center"
-            gap="40px"
-            className="w-full p-10"
-            aria-labelledby="goals-section-title"
-        >
-            <Heading
-                as="h2"
-                align="center"
-                id="goals-section-title"
-                className="text-3xl font-bold"
-            >
+        <div className="flex flex-col items-center gap-10 w-full p-10" aria-labelledby="goals-section-title">
+            <h2 id="goals-section-title" className="text-3xl font-bold text-center">
                 Персональные тренировки — лучший выбор для вас и вашего тела
-            </Heading>
+            </h2>
 
-            <Flex
-                justify="center"
-                wrap="wrap"
-                gap="40px"
-                role="list"
-                aria-label="Список целей персональных тренировок"
-            >
+            <div className="flex flex-wrap justify-center gap-10" role="list" aria-label="Список целей персональных тренировок">
                 {cards.map((card, index) => (
                     <Card
                         key={index}
@@ -106,8 +81,8 @@ const GoalsSection: React.FC = () => {
                         text={card.text}
                     />
                 ))}
-            </Flex>
-        </Flex>
+            </div>
+        </div>
     );
 };
 
