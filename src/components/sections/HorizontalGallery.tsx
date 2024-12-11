@@ -55,12 +55,12 @@ const HorizontalGallery: React.FC = () => {
 
     return (
         <section
-            className="relative w-full max-w-full overflow-hidden p-10 bg-gray-900 text-white"
+            className="flex flex-col gap-10 direction-corelative w-full max-w-full overflow-hidden p-10 bg-gray-900 text-white"
             aria-labelledby="gallery-title"
         >
             <h2
                 id="gallery-title"
-                className="text-center mb-5 text-3xl font-bold"
+                className="text-center text-3xl font-bold"
             >
                 Спортивные достижения клиентов
             </h2>

@@ -3,12 +3,12 @@ import React from 'react';
 const ServicesSection: React.FC = () => {
     return (
         <div
-            className="flex h-[600px] bg-gray-900 text-white p-10"
+            className="flex h-[600px] bg-gray-900 text-white"
             aria-labelledby="services-section-title"
             role="region"
         >
             <div
-                className="flex items-center justify-center gap-28 h-full w-full"
+                className="flex items-center justify-center h-full w-full"
             >
                 <div
                     className="flex items-center h-full p-10"
@@ -16,9 +16,9 @@ const ServicesSection: React.FC = () => {
                     <div className="flex flex-col gap-5">
                         <h2
                             id="services-section-title"
-                            className="text-3xl font-bold text-center"
+                            className="text-3xl font-bold"
                         >
-                            <div className="flex flex-col text-center">
+                            <div className="flex flex-col text-end">
                                 <span
                                     tabIndex={0}
                                     aria-label="Отправь заявку сейчас"
@@ -42,6 +42,7 @@ const ServicesSection: React.FC = () => {
                         <ul
                             role="list"
                             aria-label="Список бесплатных услуг"
+                            className="flex flex-col text-end"
                         >
                             <li
                                 role="listitem"

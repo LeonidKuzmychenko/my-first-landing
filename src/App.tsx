@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomeSection from './components/sections/HomeSection';
@@ -17,7 +17,10 @@ export interface SectionData {
 }
 
 const App: React.FC = () => {
-    document.title = "Персональный тренер Степан Бандера";
+
+    useEffect(() => {
+        document.title = "Персональный тренер Степан Бандера";
+    }, []);
 
     const sections: SectionData[] = [
         {id: 'home', title: 'Главная', content: <HomeSection/>},
@@ -51,7 +54,8 @@ const App: React.FC = () => {
                     }/>
                     <Route path="/my-first-landing" element={<Navigate to="/" />} />
                     <Route path="/my-first-landing/" element={<Navigate to="/" />} />
-                    <Route path="*" element={<NotFoundPage />} />
+                    <Route path="/not-found" element={<NotFoundPage />} />
+                    <Route path="*" element={<Navigate to="/not-found" />} />
                 </Routes>
             </div>
         </Router>
