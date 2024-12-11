@@ -3,6 +3,8 @@
   "homepage": "https://leonidkuzmychenko.github.io/my-first-landing/",
   "version": "0.1.0",
   "private": true,
+  "description": "Персональный тренер. Достижения, цели, услуги и тренировки.",
+  "author": "Грыня Господень",
   "dependencies": {
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.1",
@@ -18,9 +20,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:prod": "NODE_ENV=production react-scripts build",
     "test": "react-scripts test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:prod",
     "deploy": "gh-pages -d build",
     "update-deps": "npx npm-check-updates -u && npm install && npm audit fix"
   },
@@ -29,7 +34,8 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
+      ">1%",
+      "last 2 versions",
       "not dead",
       "not op_mini all"
     ],
@@ -38,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": ">=18.x",
+    "npm": ">=8.x"
   }
 }
