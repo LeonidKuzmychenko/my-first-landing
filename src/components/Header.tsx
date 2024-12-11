@@ -54,8 +54,19 @@ const Header: React.FC<MenuProps> = ({items}) => {
     // Закрытие меню после клика на элемент
     const handleLinkClick = useCallback(() => setIsMenuOpen(false), []);
 
+    // Сброс состояния меню при изменении ширины экрана
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768) {
+                setIsMenuOpen(false);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
-        <header className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center ${isScrolled ? 'bg-gray-600 shadow-md' : 'bg-transparent'}`}>
+        <header className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center ${isScrolled ? 'bg-[#666666] shadow-md' : 'bg-transparent'}`}>
             <nav className="flex justify-end items-center transition-colors duration-300 text-white w-full">
                 {/* Бургер-кнопка для мобильных устройств */}
                 <Toggle.Root
@@ -71,7 +82,7 @@ const Header: React.FC<MenuProps> = ({items}) => {
                 </Toggle.Root>
 
                 {/* Ссылки меню */}
-                <div className={`md:flex flex-col md:flex-row justify-center gap-5 w-full ${isMenuOpen ? 'flex absolute top-16 left-0 right-0 bg-gray-800' : 'hidden md:flex'}`}>
+                <div className={`md:flex flex-col md:flex-row justify-center gap-5 w-full ${isMenuOpen ? 'flex absolute top-16 left-0 right-0 bg-[#333333]' : 'hidden md:flex'}`}>
                     {items.map(({id, title}) => (
                         <a
                             key={id}
