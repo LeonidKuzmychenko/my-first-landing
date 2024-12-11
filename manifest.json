@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Тренер",
+  "name": "Персональный тренер Степан Бандера",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +18,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/my-first-landing/",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#262626",
   "background_color": "#ffffff"
 }
