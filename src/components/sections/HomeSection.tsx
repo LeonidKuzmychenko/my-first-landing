@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Flex, Heading} from "@radix-ui/themes";
+import {Flex, Heading, Text} from "@radix-ui/themes";
 
 const HomeSection: React.FC = () => {
     const backgroundUrl = `${process.env.PUBLIC_URL}/images/HomeGym.jpg`;
@@ -16,9 +16,9 @@ const HomeSection: React.FC = () => {
                 style={{height: '100%'}}
             >
                 <Heading as="h1" id="home-section-title">
-                    <Flex direction={"column"} align={"center"}>
-                        <span>Персональный тренер</span>
-                        <span>Степан Бандера</span>
+                    <Flex direction={"column"} align={"center"} className={"text-center"}>
+                        <Text>Персональный тренер</Text>
+                        <Text>Степан Бандера</Text>
                     </Flex>
                 </Heading>
             </Flex>

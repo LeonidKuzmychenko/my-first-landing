@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
 
     return (
         <footer>
-            <Flex  direction={"column"} gap={"40px"} className="text-white bg-[#333333] p-10 pb-1 min-h-[170px]">
+            <Flex  direction={"column"} gap={"15px"} className="text-white bg-[#333333] p-10 pb-1 min-h-[170px]">
                 <Flex justify={"between"} gap={"10px"} wrap={"wrap"}>
                     <Flex  direction={"column"} gap={"5px"} flexGrow={"1"}>
                         <Flex justify={"center"}>Адрес</Flex>

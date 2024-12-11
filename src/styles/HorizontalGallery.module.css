@@ -88,8 +88,7 @@
     transition: opacity var(--transition-speed) ease;
 }
 
-.dot:hover .dotInner,
-.dot.active .dotInner {
+.dot:hover .dotInner, .dot.active .dotInner {
     opacity: 1;
 }
 

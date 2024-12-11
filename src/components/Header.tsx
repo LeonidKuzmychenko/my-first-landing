@@ -1,5 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import styles from '../styles/Header.module.css';
+import {Cross1Icon, HamburgerMenuIcon} from '@radix-ui/react-icons';
+import * as Toggle from "@radix-ui/react-toggle";
+import {Box, Flex} from "@radix-ui/themes";
 
 interface MenuItem {
     id: string;
@@ -10,7 +13,7 @@ interface MenuProps {
     items: MenuItem[];
 }
 
-const Header: React.FC<MenuProps> = ({ items }) => {
+const Header: React.FC<MenuProps> = ({items}) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeId, setActiveId] = useState<string | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,10 +36,10 @@ const Header: React.FC<MenuProps> = ({ items }) => {
                     }
                 });
             },
-            { threshold: 0.7 } // Срабатывает, если секция видна на 90%
+            {threshold: 0.7} // Срабатывает, если секция видна на 90%
         );
 
-        const sections = items.map(({ id }) => document.getElementById(id)).filter(Boolean);
+        const sections = items.map(({id}) => document.getElementById(id)).filter(Boolean);
 
         if (sections.length === 0) {
             console.warn('No sections found for provided item ids:', items);
@@ -57,14 +60,17 @@ const Header: React.FC<MenuProps> = ({ items }) => {
         <header className={`${styles.header} ${isScrolled ? styles.scrolled : styles.transparent}`}>
             <nav className={styles.nav}>
                 {/* Бургер-кнопка для мобильных устройств */}
-                <button
+                <Toggle.Root
                     type="button"
                     className={`${styles.burgerButton} ${isMenuOpen ? styles.open : ''}`}
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
                 >
-                    <span className={styles.burgerIcon}></span>
-                </button>
+                    {isMenuOpen ?
+                        <Cross1Icon className={styles.burgerIcon}/> :
+                        <HamburgerMenuIcon className={styles.burgerIcon}/>
+                    }
+                </Toggle.Root>
 
                 {/* Ссылки меню */}
                 <div className={`${styles.menu} ${isMenuOpen ? styles.open : ''}`}>
