@@ -54,11 +54,6 @@
     transition: transform var(--transition-speed) ease, filter var(--transition-speed) ease;
 }
 
-.galleryImage:hover {
-    transform: scale(1.05);
-    filter: brightness(0.9);
-}
-
 .dotsContainer {
     display: flex;
     justify-content: center;

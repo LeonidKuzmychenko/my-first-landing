@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 import * as RadioGroup from '@radix-ui/react-radio-group';
 import styles from '../../styles/HorizontalGallery.module.css';
-import {Flex} from "@radix-ui/themes";
+import { Flex } from '@radix-ui/themes';
 
 interface GalleryItemProps {
     src: string;
@@ -26,14 +26,30 @@ const HorizontalGallery: React.FC = () => {
 
     const [activeIndex, setActiveIndex] = useState(0);
 
+    // Функция для перемещения галереи при клике на точку
     const handleDotClick = (index: number) => {
         setActiveIndex(index);
+        scrollToImage(index);
+    };
+
+    // Функция для прокрутки галереи к нужному изображению
+    const scrollToImage = (index: number) => {
         const galleryElement = document.getElementById('gallery-scrollarea');
         if (galleryElement) {
             const scrollAmount = index * galleryElement.clientWidth;
             galleryElement.scrollTo({ left: scrollAmount, behavior: 'smooth' });
         }
     };
+
+    // Хук для обновления позиции галереи при изменении размера экрана
+    useEffect(() => {
+        const handleResize = () => {
+            scrollToImage(activeIndex);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [activeIndex]);
 
     return (
         <section className={styles.content} aria-labelledby="gallery-title">
