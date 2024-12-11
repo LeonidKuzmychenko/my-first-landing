@@ -3,7 +3,7 @@ import React from 'react';
 const ServicesSection: React.FC = () => {
     return (
         <div
-            className="flex h-[600px] bg-gray-900 text-white"
+            className="flex h-[600px] bg-neutral-800 text-white"
             aria-labelledby="services-section-title"
             role="region"
         >
@@ -47,21 +47,21 @@ const ServicesSection: React.FC = () => {
                             <li
                                 role="listitem"
                                 tabIndex={0}
-                                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                             >
                                 * Консультация
                             </li>
                             <li
                                 role="listitem"
                                 tabIndex={0}
-                                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                             >
                                 * Анализ рациона
                             </li>
                             <li
                                 role="listitem"
                                 tabIndex={0}
-                                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                             >
                                 * Пробное занятие
                             </li>
@@ -71,7 +71,7 @@ const ServicesSection: React.FC = () => {
                 <div className="h-full">
                     <img
                         src={`${process.env.PUBLIC_URL}/images/Respect.png`}
-                        className="h-full w-full object-cover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="h-full w-full object-cover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                         alt="Изображение, отображающее уважение и признание"
                     />
                 </div>

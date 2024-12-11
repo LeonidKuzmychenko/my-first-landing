@@ -30,7 +30,7 @@ const NotFoundPage: React.FC = () => {
             </p>
             <a
                 href="/my-first-landing/"
-                className="text-blue-500 text-sm font-medium underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:no-underline"
+                className="text-neutral-600 text-sm font-medium underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 hover:no-underline"
                 aria-label="Вернуться на главную страницу"
             >
                 Вернуться на главную

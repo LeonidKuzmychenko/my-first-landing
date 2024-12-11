@@ -37,7 +37,7 @@ const HomeSection: React.FC = () => {
 
                 <a
                     href="#goals"
-                    className="mt-10 bg-primary text-white py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:bg-blue-700 transition-colors"
+                    className="mt-10 bg-primary text-white py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 hover:bg-neutral-700 transition-colors"
                     aria-label="Перейти к целям тренировки"
                 >
                     Узнать больше

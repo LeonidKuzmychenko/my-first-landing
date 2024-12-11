@@ -36,7 +36,7 @@ const AchievementsSection: React.FC = () => {
                         }}
                     >
                         <div
-                            className="w-full aspect-square rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            className="w-full aspect-square rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                         >
                             <img
                                 src={card.src}

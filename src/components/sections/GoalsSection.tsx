@@ -8,7 +8,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ src, title, text }) => (
     <div
-        className="flex flex-col items-center gap-5 w-72 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+        className="flex flex-col items-center gap-5 w-72 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-600"
         aria-labelledby={`card-title-${title}`}
         tabIndex={0}
         role="listitem"
