@@ -9,7 +9,6 @@ import GoalsSection from "./components/sections/GoalsSection";
 import NotFoundPage from "./components/NotFoundPage";
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 import HorizontalGallery from "./components/sections/HorizontalGallery";
-import {Box, Flex, Section} from "@radix-ui/themes";
 
 export interface SectionData {
     id: string;
@@ -31,21 +30,21 @@ const App: React.FC = () => {
 
     return (
         <Router basename="/my-first-landing">
-            <Flex direction="column" className="min-h-screen" role="application" aria-labelledby="app-title">
+            <div className="flex flex-col min-h-screen" role="application" aria-labelledby="app-title">
                 <Routes>
                     <Route path="/" element={
                         <>
                             <Header items={sections.map(item => ({id: item.id, title: item.title}))} />
                             <main role="main">
                                 {sections.map(({id, content}) => (
-                                    <Section
-                                        p="0"
+                                    <section
                                         key={id}
                                         id={id}
                                         role="region"
+                                        className="p-0"
                                     >
                                         {content}
-                                    </Section>
+                                    </section>
                                 ))}
                             </main>
                             <Footer />
@@ -55,7 +54,7 @@ const App: React.FC = () => {
                     <Route path="/my-first-landing/" element={<Navigate to="/" />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
-            </Flex>
+            </div>
         </Router>
     );
 };
