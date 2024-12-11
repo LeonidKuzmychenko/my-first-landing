@@ -1,6 +1,5 @@
 import React from 'react';
 import Menu from './components/Menu';
-import Section from './components/Section';
 import Footer from './components/Footer';
 import HomeSection from './components/sections/HomeSection';
 import ServicesSection from './components/sections/ServicesSection';
@@ -10,6 +9,7 @@ import GoalsSection from "./components/sections/GoalsSection";
 import NotFoundPage from "./components/NotFoundPage";
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 import HorizontalGallery from "./components/sections/HorizontalGallery";
+import {Flex} from "@radix-ui/themes";
 
 export interface SectionData {
     id: string;
@@ -28,36 +28,14 @@ const App: React.FC = () => {
         {id: 'contacts', title: 'Контакты', content: <ContactsSection/>}
     ];
 
-    let path = window.location.pathname;
-    console.log("path = " + path)
-
-    // const content = <>
-    //     <div style={styles.app}>
-    //         <Menu item={sections.map(item => ({id: item.id, title: item.title}))}/>
-    //         {sections.map(({id, content}) => (
-    //             <Section key={id} id={id} content={content}/>
-    //         ))}
-    //         <Footer/>
-    //     </div>
-    // </>
-
-    // switch (path) {
-    //     case '/my-first-landing':
-    //         return content;
-    //     case '/my-first-landing/':
-    //         return content;
-    //     default:
-    //         return <NotFoundPage/>;
-    // }
-
     return (
         <Router basename="/my-first-landing">
-            <div style={styles.app}>
+            <Flex direction={"column"} className={"min-h-screen"}>
                 <Routes>
                     <Route path="/" element={<>
                         <Menu item={sections.map(item => ({id: item.id, title: item.title}))}/>
                         {sections.map(({id, content}) => (
-                            <Section key={id} id={id} content={content}/>
+                            content
                         ))}
                         <Footer/>
                     </>}/>
@@ -65,17 +43,9 @@ const App: React.FC = () => {
                     <Route path="/my-first-landing/" element={<Navigate to="/"/>}/>
                     <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>
-            </div>
+            </Flex>
         </Router>
     );
-};
-
-const styles = {
-    app: {
-        display: 'flex',
-        flexDirection: 'column' as const,
-        minHeight: '100vh',
-    },
 };
 
 export default App;

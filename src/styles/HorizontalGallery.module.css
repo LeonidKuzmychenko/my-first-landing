@@ -1,87 +1,107 @@
-/* Основной контейнер для галереи */
+:root {
+    --primary-color: #333;
+    --text-color: white;
+    --dot-color: #666;
+    --dot-active-color: white;
+    --dot-hover-color: #777;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
 .content {
     position: relative;
     width: 100%;
     max-width: 100%;
     overflow: hidden;
     padding: 40px;
-    /*border-top: 1px gray outset;*/
-    background-color: #333333;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 .title {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 40px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Галерея с горизонтальной прокруткой */
 .gallery {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Скрыть скроллбар в Firefox */
-}
-
-.gallery::-webkit-scrollbar {
-    display: none; /* Скрыть скроллбар в Chrome */
-}
-
-/* Элементы внутри галереи */
-.galleryItem {
-    display: flex;
-    justify-content: center;
-    flex: 0 0 100%; /* Элемент занимает всю ширину контейнера */
+    position: relative;
     width: 100%;
     height: 500px;
-    scroll-snap-align: center;
-
+    overflow: hidden;
+    border-radius: var(--border-radius);
 }
 
-.galleryImage {
-    text-align: center;
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*object-fit: cover;*/
-    height: auto; /* Высота подстраивается автоматически */
-    object-fit: contain; /* Сохраняет пропорции, подстраивает под размеры родителя */
-    transition: transform 0.3s ease, filter 0.3s ease;
+.galleryContent {
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 
-/*.galleryImage:hover {*/
-/*    transform: scale(1.05);*/
-/*    filter: brightness(0.9);*/
-/*}*/
-
-/* Контейнер для точек навигации */
-.dotsContainer {
+.galleryItem {
+    flex: 0 0 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 500px;
+    scroll-snap-align: center;
+}
+
+.galleryImage {
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-speed) ease, filter var(--transition-speed) ease;
+}
+
+.galleryImage:hover {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
+.dotsContainer {
+    display: flex;
+    justify-content: center;
     margin-top: 15px;
+    gap: 10px;
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
-    margin: 0 5px;
-    background-color: #666;
+    width: 14px;
+    height: 14px;
+    background-color: var(--dot-color);
     border-radius: 50%;
-    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.dotInner {
+    width: 8px;
+    height: 8px;
+    background-color: var(--dot-active-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.dot:hover .dotInner,
+.dot.active .dotInner {
+    opacity: 1;
 }
 
 .dot:hover {
-    background-color: #777;
+    background-color: var(--dot-hover-color);
 }
 
 .dot.active {
-    background-color: white;
+    background-color: var(--dot-active-color);
 }
 
 .dot:focus {
     outline: none;
+    transform: scale(1.2);
 }

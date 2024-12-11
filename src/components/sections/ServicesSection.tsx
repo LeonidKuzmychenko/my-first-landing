@@ -1,25 +1,29 @@
 import React from 'react';
-import styles from '../../styles/ServicesSection.module.css';
+import {Box, Flex, Heading} from "@radix-ui/themes";
 
 const ServicesSection: React.FC = () => {
     return (
-        <div className={styles.content}>
-            <div className={styles.textWrapper}>
-                <div className={styles.infoWrapper}>
-                    <h2 className={styles.title}>
-                        <span>Отправь заявку сейчас</span><span>и получи</span><span> Бесплатную Тренировку</span>
-                    </h2>
-                    <ul className={styles.listWrapper}>
-                        <li>* Консультация</li>
-                        <li>* Анализ рациона</li>
-                        <li>* Пробное занятие</li>
-                    </ul>
-                </div>
-            </div>
-            <div className={styles.imageWrapper}>
-                <img src={`${process.env.PUBLIC_URL}/images/Respect.png`} className={styles.image} alt={"respect"}/>
-            </div>
-        </div>
+        <Flex className="h-[600px] bg-[#333333] text-white">
+            <Flex align={"center"} justify={"center"} gap={"7vw"} className={"h-full w-full"}>
+                <Flex className={"h-full p-10"} align={"center"}>
+                    <Flex direction={"column"} gap={"5"}>
+                        <Heading as={"h2"}>
+                            <Flex direction={"column"}>
+                                <span>Отправь заявку сейчас</span><span>и получи</span><span>Бесплатную Тренировку</span>
+                            </Flex>
+                        </Heading>
+                        <ul>
+                            <li>* Консультация</li>
+                            <li>* Анализ рациона</li>
+                            <li>* Пробное занятие</li>
+                        </ul>
+                    </Flex>
+                </Flex>
+                <Box className={"h-full"}>
+                    <img src={`${process.env.PUBLIC_URL}/images/Respect.png`} className="h-full" alt={"respect"}/>
+                </Box>
+            </Flex>
+        </Flex>
     );
 };
 
