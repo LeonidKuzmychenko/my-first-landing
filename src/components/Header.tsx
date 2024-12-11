@@ -32,7 +32,7 @@ const Header: React.FC<MenuProps> = ({items}) => {
                     }
                 });
             },
-            {threshold: 0.7} // Срабатывает, если секция видна на 70%
+            {threshold: 0.2} // Срабатывает, если секция видна на 70%
         );
 
         const sections = items.map(({id}) => document.getElementById(id)).filter(Boolean);
