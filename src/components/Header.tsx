@@ -1,6 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {Cross1Icon, HamburgerMenuIcon} from '@radix-ui/react-icons';
-import * as Toggle from "@radix-ui/react-toggle";
 
 interface MenuItem {
     id: string;
@@ -66,34 +65,46 @@ const Header: React.FC<MenuProps> = ({items}) => {
     }, []);
 
     return (
-        <header className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center ${isScrolled ? 'bg-[#666666] shadow-md' : 'bg-transparent'}`}>
-            <nav className="flex justify-end items-center transition-colors duration-300 text-white w-full">
+        <header className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center ${isScrolled ? 'bg-[#666] shadow-md' : 'bg-transparent'}`} aria-label="Main Navigation">
+            <nav className="flex justify-end items-center transition-colors duration-300 text-white w-full" role="navigation">
                 {/* Бургер-кнопка для мобильных устройств */}
-                <Toggle.Root
+                <button
                     type="button"
-                    className={`relative w-10 h-10 flex md:hidden justify-center items-center`}
+                    className="relative w-10 h-10 flex md:hidden justify-center items-center"
                     onClick={toggleMenu}
+                    aria-expanded={isMenuOpen}
                     aria-label="Toggle menu"
                 >
                     {isMenuOpen ?
                         <Cross1Icon className="w-full h-full text-white" /> :
                         <HamburgerMenuIcon className="w-full h-full text-white" />
                     }
-                </Toggle.Root>
+                </button>
 
                 {/* Ссылки меню */}
-                <div className={`md:flex flex-col md:flex-row justify-center gap-5 w-full ${isMenuOpen ? 'flex absolute top-16 left-0 right-0 bg-[#333333]' : 'hidden md:flex'}`}>
-                    {items.map(({id, title}) => (
-                        <a
+                <ul
+                    className={`py-2 md:flex flex-col md:flex-row justify-center w-full ${isMenuOpen ? 'flex absolute top-16 left-0 right-0 bg-[#333]' : 'hidden md:flex'}`}
+                    role="menubar"
+                >
+                    {items.map(({id, title}, index) => (
+                        <li
                             key={id}
-                            href={`#${id}`}
-                            className={`py-2 px-4 text-white cursor-pointer text-center hover:underline ${activeId === id ? 'font-bold' : ''}`}
+                            role="none"
                             onClick={handleLinkClick}
+                            className={`cursor-pointer py-2 px-4 hover:underline ${activeId === id ? 'font-bold' : ''}`}
                         >
-                            {title}
-                        </a>
+                            <a
+                                href={`#${id}`}
+                                className="text-white text-center w-full h-full block"
+                                tabIndex={index === 0 ? 0 : -1}
+                                role="menuitem"
+                                aria-current={activeId === id ? 'page' : undefined}
+                            >
+                                {title}
+                            </a>
+                        </li>
                     ))}
-                </div>
+                </ul>
             </nav>
         </header>
     );
