@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
     return (
         <footer role="contentinfo" aria-labelledby="footer-title">
             <div
-                className="flex flex-col gap-4 text-white bg-[#333333] p-10 pb-1 min-h-[170px]"
+                className="flex flex-col gap-4 text-white bg-gray-900 p-10 pb-1 min-h-[170px]"
             >
                 <h2 id="footer-title" className="sr-only">
                     Информация о контактах и социальных сетях
@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
                 <div
                     className="flex justify-between gap-4 flex-wrap"
                 >
-                    <div className="flex flex-col gap-1 flex-1 text-center">
+                    <div className="flex flex-col gap-2 flex-1 text-center">
                         <span
                             tabIndex={0}
                             aria-label="Адрес фитнес-клуба"
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                             Фитнес-клуб Sport Studio 55
                         </span>
                     </div>
-                    <div className="flex flex-col gap-1 flex-1 text-center">
+                    <div className="flex flex-col gap-2 flex-1 text-center">
                         <span
                             tabIndex={0}
                             aria-label="Телефон для связи"
@@ -53,13 +53,13 @@ const Footer: React.FC = () => {
                         </span>
                         <a
                             href="tel:+380671322223"
-                            className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                            className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                             aria-label="Позвонить по номеру +380671322223"
                         >
                             +380671322223
                         </a>
                     </div>
-                    <div className="flex flex-col gap-1 flex-1 text-center">
+                    <div className="flex flex-col gap-2 flex-1 text-center">
                         <span
                             tabIndex={0}
                             aria-label="Социальные сети"
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
                                 <a
                                     key={card.alt}
                                     href="#"
-                                    className="h-8 w-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                                    className="h-8 w-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                                     aria-label={`Открыть страницу в ${card.alt}`}
                                 >
                                     <img

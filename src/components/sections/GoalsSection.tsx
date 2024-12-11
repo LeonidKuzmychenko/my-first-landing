@@ -8,7 +8,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ src, title, text }) => (
     <div
-        className="flex flex-col items-center gap-2.5 w-72 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500"
+        className="flex flex-col items-center gap-5 w-72 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
         aria-labelledby={`card-title-${title}`}
         tabIndex={0}
         role="listitem"
@@ -30,11 +30,11 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
         </div>
         <h3
             id={`card-title-${title}`}
-            className="text-lg font-bold text-center pointer-events-none"
+            className="text-2xl font-semibold text-center pointer-events-none"
         >
             {title}
         </h3>
-        <p className="text-center text-gray-600 pointer-events-none">
+        <p className="text-base text-center text-gray-600 pointer-events-none">
             {text}
         </p>
         <a

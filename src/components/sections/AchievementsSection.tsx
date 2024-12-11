@@ -16,7 +16,7 @@ const AchievementsSection: React.FC = () => {
 
     return (
         <div className="flex flex-col gap-10 w-full p-10" aria-labelledby="achievements-title">
-            <h2 id="achievements-title" className="text-center text-2xl font-bold">
+            <h2 id="achievements-title" className="text-center text-3xl font-bold leading-tight">
                 Спортивные достижения
             </h2>
 
@@ -24,7 +24,7 @@ const AchievementsSection: React.FC = () => {
                 {cards.map((card, index) => (
                     <div
                         key={index}
-                        className="flex flex-col gap-2.5 items-center w-72"
+                        className="flex flex-col gap-4 items-center w-72"
                         role="listitem"
                         tabIndex={0}
                         aria-label={`Достижение ${card.title}`}
@@ -36,7 +36,7 @@ const AchievementsSection: React.FC = () => {
                         }}
                     >
                         <div
-                            className="w-full aspect-square rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                            className="w-full aspect-square rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                         >
                             <img
                                 src={card.src}
@@ -44,10 +44,10 @@ const AchievementsSection: React.FC = () => {
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        <h3 className="text-xl font-semibold">
+                        <h3 className="text-2xl font-semibold leading-snug">
                             {card.title}
                         </h3>
-                        <p className="text-base">
+                        <p className="text-base font-normal leading-relaxed">
                             {card.text}
                         </p>
                         <a

@@ -5,8 +5,8 @@ const HomeSection: React.FC = () => {
 
     return (
         <div
-            style={{backgroundImage: `url(${backgroundUrl})`}}
-            className="flex justify-center items-center h-screen w-full text-white bg-cover bg-center"
+            style={{ backgroundImage: `url(${backgroundUrl})` }}
+            className="flex justify-center items-center h-screen w-full text-white bg-cover bg-center p-10"
             aria-labelledby="home-section-title"
         >
             <div
@@ -15,18 +15,18 @@ const HomeSection: React.FC = () => {
             >
                 <h1
                     id="home-section-title"
-                    className="text-4xl font-bold text-center"
+                    className="text-4xl font-extrabold leading-tight text-center"
                 >
                     <div className="flex flex-col items-center text-center">
                         <p
-                            className="text-2xl font-semibold"
+                            className="text-2xl font-semibold leading-snug"
                             tabIndex={0}
                             aria-label="Профессия: Персональный тренер"
                         >
                             Персональный тренер
                         </p>
                         <p
-                            className="text-3xl font-bold"
+                            className="text-3xl font-bold leading-tight"
                             tabIndex={0}
                             aria-label="Имя тренера: Степан Бандера"
                         >
@@ -37,7 +37,7 @@ const HomeSection: React.FC = () => {
 
                 <a
                     href="#goals"
-                    className="mt-10 bg-gray-700 text-white py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-800 transition-colors"
+                    className="mt-10 bg-primary text-white py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:bg-blue-700 transition-colors"
                     aria-label="Перейти к целям тренировки"
                 >
                     Узнать больше

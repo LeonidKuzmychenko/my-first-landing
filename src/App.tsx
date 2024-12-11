@@ -41,7 +41,6 @@ const App: React.FC = () => {
                                         key={id}
                                         id={id}
                                         role="region"
-                                        className="p-0"
                                     >
                                         {content}
                                     </section>
