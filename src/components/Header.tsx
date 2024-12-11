@@ -96,7 +96,7 @@ const Header: React.FC<MenuProps> = ({items}) => {
                             <a
                                 href={`#${id}`}
                                 className="text-white text-center w-full h-full block"
-                                tabIndex={index === 0 ? 0 : -1}
+                                tabIndex={0}
                                 role="menuitem"
                                 aria-current={activeId === id ? 'page' : undefined}
                             >

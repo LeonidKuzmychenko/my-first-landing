@@ -13,9 +13,9 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
         direction="column"
         align="center"
         gap="10px"
-        className="w-[300px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+        className="w-[300px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500"
         aria-labelledby={`card-title-${title}`}
-        tabIndex={0} // Makes the card focusable
+        tabIndex={0} // Makes the card focusable only via keyboard (not mouse)
         role="listitem"
         onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -28,20 +28,20 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
             <img
                 src={src}
                 alt={`Изображение для цели: ${title}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover pointer-events-none"
             />
         </AspectRatio>
         <Heading
             as="h3"
             align="center"
             id={`card-title-${title}`}
-            className="text-lg font-bold"
+            className="text-lg font-bold pointer-events-none"
         >
             {title}
         </Heading>
         <Text
             align="center"
-            className="text-center text-gray-600"
+            className="text-center text-gray-600 pointer-events-none"
         >
             {text}
         </Text>
