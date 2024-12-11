@@ -1,5 +1,4 @@
 import React from 'react';
-import {Flex} from "@radix-ui/themes";
 
 interface SocialCard {
     src: string;
@@ -21,39 +20,53 @@ const Footer: React.FC = () => {
 
     return (
         <footer role="contentinfo" aria-labelledby="footer-title">
-            <Flex
-                direction="column"
-                gap="15px"
-                className="text-white bg-[#333333] p-10 pb-1 min-h-[170px]"
+            <div
+                className="flex flex-col gap-4 text-white bg-[#333333] p-10 pb-1 min-h-[170px]"
             >
-                <h2 id="footer-title" className="sr-only">Информация о контактах и социальных сетях</h2>
+                <h2 id="footer-title" className="sr-only">
+                    Информация о контактах и социальных сетях
+                </h2>
 
-                <Flex justify="between" gap="10px" wrap="wrap">
-                    <Flex direction="column" gap="5px" flexGrow="1">
-                        <Flex justify="center">
-                            <span tabIndex={0} aria-label="Адрес фитнес-клуба">Адрес</span>
-                        </Flex>
-                        <Flex justify="center">
-                            <span tabIndex={0} aria-label="Фитнес-клуб Sport Studio 55">Фитнес-клуб Sport Studio 55</span>
-                        </Flex>
-                    </Flex>
-                    <Flex direction="column" gap="5px" flexGrow="1">
-                        <Flex justify="center">
-                            <span tabIndex={0} aria-label="Телефон для связи">Телефон</span>
-                        </Flex>
-                        <Flex justify="center">
-                            <a href="tel:+380671322223"
-                               className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-                               aria-label="Позвонить по номеру +380671322223">
-                                +380671322223
-                            </a>
-                        </Flex>
-                    </Flex>
-                    <Flex direction="column" gap="5px" flexGrow="1">
-                        <Flex justify="center">
-                            <span tabIndex={0} aria-label="Социальные сети">Социальные сети</span>
-                        </Flex>
-                        <Flex justify="center" gap="10px">
+                <div
+                    className="flex justify-between gap-4 flex-wrap"
+                >
+                    <div className="flex flex-col gap-1 flex-1 text-center">
+                        <span
+                            tabIndex={0}
+                            aria-label="Адрес фитнес-клуба"
+                        >
+                            Адрес
+                        </span>
+                        <span
+                            tabIndex={0}
+                            aria-label="Фитнес-клуб Sport Studio 55"
+                        >
+                            Фитнес-клуб Sport Studio 55
+                        </span>
+                    </div>
+                    <div className="flex flex-col gap-1 flex-1 text-center">
+                        <span
+                            tabIndex={0}
+                            aria-label="Телефон для связи"
+                        >
+                            Телефон
+                        </span>
+                        <a
+                            href="tel:+380671322223"
+                            className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                            aria-label="Позвонить по номеру +380671322223"
+                        >
+                            +380671322223
+                        </a>
+                    </div>
+                    <div className="flex flex-col gap-1 flex-1 text-center">
+                        <span
+                            tabIndex={0}
+                            aria-label="Социальные сети"
+                        >
+                            Социальные сети
+                        </span>
+                        <div className="flex justify-center gap-2">
                             {cards.map((card, index) => (
                                 <a
                                     key={card.alt}
@@ -68,15 +81,17 @@ const Footer: React.FC = () => {
                                     />
                                 </a>
                             ))}
-                        </Flex>
-                    </Flex>
-                </Flex>
-                <Flex justify="center" align="end" flexGrow="1">
+                        </div>
+                    </div>
+                </div>
+                <div
+                    className="flex justify-center items-end flex-1"
+                >
                     <p tabIndex={0} aria-label="Авторские права">
                         Copyright © 2024. Created by Грыня Господень
                     </p>
-                </Flex>
-            </Flex>
+                </div>
+            </div>
         </footer>
     );
 };
