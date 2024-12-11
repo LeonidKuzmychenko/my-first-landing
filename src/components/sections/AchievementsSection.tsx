@@ -17,22 +17,69 @@ const AchievementsSection: React.FC = () => {
     ];
 
     return (
-        <Flex direction={"column"} gap={"40px"} className="w-full p-10" aria-labelledby="achievements-title">
-            <Heading as={"h2"} align={"center"} id="achievements-title">
+        <Flex
+            direction="column"
+            gap="40px"
+            className="w-full p-10"
+            aria-labelledby="achievements-title"
+        >
+            <Heading
+                as="h2"
+                align="center"
+                id="achievements-title"
+            >
                 Спортивные достижения
             </Heading>
+
             <Flex
                 justify="center"
                 wrap="wrap"
                 gap="40px"
+                role="list"
+                aria-label="Список достижений"
             >
                 {cards.map((card, index) => (
-                    <Flex key={index} direction={"column"} gap={"10px"} align={"center"} className="w-[300px]">
-                        <AspectRatio ratio={1} className="w-full rounded-full overflow-hidden">
-                            <img src={card.src} alt={card.title} className="w-full h-full object-cover"/>
+                    <Flex
+                        key={index}
+                        direction="column"
+                        gap="10px"
+                        align="center"
+                        className="w-[300px]"
+                        role="listitem"
+                        tabIndex={0}
+                        aria-label={`Достижение ${card.title}`}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                const link = document.getElementById(`card-link-${index}`);
+                                link?.click();
+                            }
+                        }}
+                    >
+                        <AspectRatio
+                            ratio={1}
+                            className="w-full rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        >
+                            <img
+                                src={card.src}
+                                alt={`Изображение достижения ${card.title}`}
+                                className="w-full h-full object-cover"
+                            />
                         </AspectRatio>
-                        <Heading as={"h3"}>{card.title}</Heading>
-                        <Text>{card.text}</Text>
+                        <Heading
+                            as="h3"
+                        >
+                            {card.title}
+                        </Heading>
+                        <Text>
+                            {card.text}
+                        </Text>
+                        <a
+                            id={`card-link-${index}`}
+                            href={`#achievement-${index}`}
+                            className="sr-only"
+                        >
+                            Перейти к достижению {card.title}
+                        </a>
                     </Flex>
                 ))}
             </Flex>
