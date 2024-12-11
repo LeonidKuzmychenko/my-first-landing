@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 import * as RadioGroup from '@radix-ui/react-radio-group';
-import { Flex } from '@radix-ui/themes';
+import {Flex, Heading} from '@radix-ui/themes';
+import Header from "../Header";
 
 interface GalleryItemProps {
     src: string;
@@ -61,9 +62,9 @@ const HorizontalGallery: React.FC = () => {
             className="relative w-full max-w-full overflow-hidden p-10 bg-gray-800 text-white"
             aria-labelledby="gallery-title"
         >
-            <h2 id="gallery-title" className="text-center mb-5">
+            <Heading as={"h2"} id="gallery-title" className="text-center mb-5">
                 Спортивные достижения клиентов
-            </h2>
+            </Heading>
 
             <ScrollArea.Root className="relative w-full h-[500px] overflow-hidden rounded-lg" id="gallery-scrollarea">
                 <Flex className="flex w-full h-full" direction="row">
