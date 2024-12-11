@@ -1,6 +1,4 @@
 import React from 'react';
-import {AspectRatio} from '@radix-ui/react-aspect-ratio';
-import {Flex, Heading, Text} from "@radix-ui/themes";
 
 interface CardProps {
     src: string;
@@ -17,34 +15,16 @@ const AchievementsSection: React.FC = () => {
     ];
 
     return (
-        <Flex
-            direction="column"
-            gap="40px"
-            className="w-full p-10"
-            aria-labelledby="achievements-title"
-        >
-            <Heading
-                as="h2"
-                align="center"
-                id="achievements-title"
-            >
+        <div className="flex flex-col gap-10 w-full p-10" aria-labelledby="achievements-title">
+            <h2 id="achievements-title" className="text-center text-2xl font-bold">
                 Спортивные достижения
-            </Heading>
+            </h2>
 
-            <Flex
-                justify="center"
-                wrap="wrap"
-                gap="40px"
-                role="list"
-                aria-label="Список достижений"
-            >
+            <div className="flex flex-wrap justify-center gap-10" role="list" aria-label="Список достижений">
                 {cards.map((card, index) => (
-                    <Flex
+                    <div
                         key={index}
-                        direction="column"
-                        gap="10px"
-                        align="center"
-                        className="w-[300px]"
+                        className="flex flex-col gap-2.5 items-center w-72"
                         role="listitem"
                         tabIndex={0}
                         aria-label={`Достижение ${card.title}`}
@@ -55,24 +35,21 @@ const AchievementsSection: React.FC = () => {
                             }
                         }}
                     >
-                        <AspectRatio
-                            ratio={1}
-                            className="w-full rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                        <div
+                            className="w-full aspect-square rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                         >
                             <img
                                 src={card.src}
                                 alt={`Изображение достижения ${card.title}`}
                                 className="w-full h-full object-cover"
                             />
-                        </AspectRatio>
-                        <Heading
-                            as="h3"
-                        >
+                        </div>
+                        <h3 className="text-xl font-semibold">
                             {card.title}
-                        </Heading>
-                        <Text>
+                        </h3>
+                        <p className="text-base">
                             {card.text}
-                        </Text>
+                        </p>
                         <a
                             id={`card-link-${index}`}
                             href={`#achievement-${index}`}
@@ -80,10 +57,10 @@ const AchievementsSection: React.FC = () => {
                         >
                             Перейти к достижению {card.title}
                         </a>
-                    </Flex>
+                    </div>
                 ))}
-            </Flex>
-        </Flex>
+            </div>
+        </div>
     );
 };
 
