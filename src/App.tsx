@@ -13,12 +13,13 @@ import {Box, Flex, Section} from "@radix-ui/themes";
 
 export interface SectionData {
     id: string;
-    title: string
+    title: string;
     content: React.ReactNode;
 }
 
 const App: React.FC = () => {
-    document.title = "Персональный тренер Степан Бандера"
+    document.title = "Персональный тренер Степан Бандера";
+
     const sections: SectionData[] = [
         {id: 'home', title: 'Главная', content: <HomeSection/>},
         {id: 'goals', title: 'Цели', content: <GoalsSection/>},
@@ -30,24 +31,29 @@ const App: React.FC = () => {
 
     return (
         <Router basename="/my-first-landing">
-            <Flex direction={"column"} className={"min-h-screen"}>
+            <Flex direction="column" className="min-h-screen" role="application" aria-labelledby="app-title">
                 <Routes>
                     <Route path="/" element={
                         <>
-                            <Header items={sections.map(item => ({id: item.id, title: item.title}))}/>
-                            <main>
+                            <Header items={sections.map(item => ({id: item.id, title: item.title}))} />
+                            <main role="main">
                                 {sections.map(({id, content}) => (
-                                    <Section p={"0"} key={id} id={id}>
+                                    <Section
+                                        p="0"
+                                        key={id}
+                                        id={id}
+                                        role="region"
+                                    >
                                         {content}
                                     </Section>
                                 ))}
                             </main>
-                            <Footer/>
+                            <Footer />
                         </>
                     }/>
-                    <Route path="/my-first-landing" element={<Navigate to="/"/>}/>
-                    <Route path="/my-first-landing/" element={<Navigate to="/"/>}/>
-                    <Route path="*" element={<NotFoundPage/>}/>
+                    <Route path="/my-first-landing" element={<Navigate to="/" />} />
+                    <Route path="/my-first-landing/" element={<Navigate to="/" />} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Flex>
         </Router>
