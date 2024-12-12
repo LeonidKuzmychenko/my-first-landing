@@ -21,14 +21,14 @@ const Footer: React.FC = () => {
     return (
         <footer role="contentinfo" aria-labelledby="footer-title">
             <div
-                className="flex flex-col gap-2 md:gap-4 text-white bg-neutral-800 p-5 pb-1 md:p-10 md:pb-1 min-h-[170px]"
+                className="flex flex-col gap-4 text-white bg-neutral-800 p-5 pb-1 md:p-10 md:pb-1 min-h-[170px]"
             >
                 <h2 id="footer-title" className="sr-only">
                     Информация о контактах и социальных сетях
                 </h2>
 
                 <div
-                    className="flex justify-between gap-4 flex-wrap"
+                    className="flex flex-col md:flex-row justify-between gap-4 flex-wrap"
                 >
                     <div className="flex flex-col gap-2 flex-1 text-center">
                         <h3
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
                             aria-label="Фитнес-клуб Sport Studio 55"
                             className="text-base font-normal leading-relaxed"
                         >
-                            Фитнес-клуб Sport Studio 55
+                            г. Одесса, с. Лиманка, ул. Жемчужная 1, Sport Studio 55
                         </span>
                     </div>
                     <div className="flex flex-col gap-2 flex-1 text-center">
