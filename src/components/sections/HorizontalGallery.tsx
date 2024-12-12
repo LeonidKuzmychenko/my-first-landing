@@ -55,7 +55,7 @@ const HorizontalGallery: React.FC = () => {
 
     return (
         <section
-            className="flex flex-col gap-10 direction-corelative w-full h-[600px] md:h-[800px] max-w-full overflow-hidden p-10 bg-neutral-800 text-white"
+            className="flex flex-col gap-10 direction-corelative w-full h-[600px] md:h-[800px] max-w-full overflow-hidden p-5 md:p-10 bg-neutral-800 text-white"
             aria-labelledby="gallery-title"
         >
             <h2

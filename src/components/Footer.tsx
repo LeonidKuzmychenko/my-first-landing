@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
     return (
         <footer role="contentinfo" aria-labelledby="footer-title">
             <div
-                className="flex flex-col gap-4 text-white bg-neutral-800 p-10 pb-1 min-h-[170px]"
+                className="flex flex-col gap-2 md:gap-4 text-white bg-neutral-800 p-5 pb-1 md:p-10 md:pb-1 min-h-[170px]"
             >
                 <h2 id="footer-title" className="sr-only">
                     Информация о контактах и социальных сетях

@@ -15,7 +15,7 @@ const AchievementsSection: React.FC = () => {
     ];
 
     return (
-        <div className="flex flex-col gap-10 w-full p-10" aria-labelledby="achievements-title">
+        <div className="flex flex-col gap-10 w-full p-5 md:p-10" aria-labelledby="achievements-title">
             <h2 id="achievements-title" className="text-center text-3xl font-bold leading-tight">
                 Спортивные достижения
             </h2>

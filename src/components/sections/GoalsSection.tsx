@@ -67,7 +67,7 @@ const GoalsSection: React.FC = () => {
     ];
 
     return (
-        <div className="flex flex-col items-center gap-10 w-full p-10" aria-labelledby="goals-section-title">
+        <div className="flex flex-col items-center gap-10 w-full p-5 md:p-10" aria-labelledby="goals-section-title">
             <h2 id="goals-section-title" className="text-3xl font-bold text-center">
                 Персональные тренировки — лучший выбор для вас и вашего тела
             </h2>
