@@ -31,41 +31,45 @@ const Footer: React.FC = () => {
                     className="flex justify-between gap-4 flex-wrap"
                 >
                     <div className="flex flex-col gap-2 flex-1 text-center">
-                        <span
+                        <h3
                             tabIndex={0}
                             aria-label="Адрес фитнес-клуба"
+                            className="text-xl font-semibold leading-snug"
                         >
                             Адрес
-                        </span>
+                        </h3>
                         <span
                             tabIndex={0}
                             aria-label="Фитнес-клуб Sport Studio 55"
+                            className="text-base font-normal leading-relaxed"
                         >
                             Фитнес-клуб Sport Studio 55
                         </span>
                     </div>
                     <div className="flex flex-col gap-2 flex-1 text-center">
-                        <span
+                        <h3
                             tabIndex={0}
                             aria-label="Телефон для связи"
+                            className="text-xl font-semibold leading-snug"
                         >
                             Телефон
-                        </span>
+                        </h3>
                         <a
                             href="tel:+380671322223"
-                            className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
+                            className="text-base font-normal leading-relaxed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                             aria-label="Позвонить по номеру +380671322223"
                         >
                             +380671322223
                         </a>
                     </div>
                     <div className="flex flex-col gap-2 flex-1 text-center">
-                        <span
+                        <h3
                             tabIndex={0}
                             aria-label="Социальные сети"
+                            className="text-xl font-semibold leading-snug"
                         >
                             Социальные сети
-                        </span>
+                        </h3>
                         <div className="flex justify-center gap-2">
                             {cards.map((card, index) => (
                                 <a
@@ -85,7 +89,11 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <div className="flex justify-center items-end flex-1 text-center">
-                    <p tabIndex={0} aria-label="Авторские права">
+                    <p
+                        tabIndex={0}
+                        aria-label="Авторские права"
+                        className="text-sm font-medium leading-snug"
+                    >
                         Copyright © 2024. Created by Грыня Господень
                     </p>
                 </div>

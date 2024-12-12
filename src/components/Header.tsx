@@ -27,7 +27,7 @@ const Header: React.FC<MenuProps> = ({ items }) => {
         let observer: IntersectionObserver;
 
         const createObserver = () => {
-            const threshold = window.innerWidth < 768 ? 0.1 : 0.3;
+            const threshold = window.innerWidth < 768 ? 0.1 : 0.7;
 
             observer = new IntersectionObserver(
                 (entries) => {
