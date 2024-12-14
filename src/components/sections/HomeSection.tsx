@@ -19,14 +19,14 @@ const HomeSection: React.FC = () => {
                 >
                     <div className="flex flex-col items-center text-center">
                         <p
-                            className="text-2xl font-semibold leading-snug"
+                            className="text-4xl font-semibold leading-snug"
                             tabIndex={0}
                             aria-label="Профессия: Персональный тренер"
                         >
                             Персональный тренер
                         </p>
                         <p
-                            className="text-3xl font-bold leading-tight"
+                            className="text-5xl font-bold leading-tight"
                             tabIndex={0}
                             aria-label="Имя тренера: Евгений Московцев"
                         >
@@ -37,7 +37,7 @@ const HomeSection: React.FC = () => {
 
                 <a
                     href="#goals"
-                    className="mt-10 bg-primary text-white py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 hover:bg-neutral-700 transition-colors"
+                    className="mt-10 text-xl bg-primary text-white py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 hover:bg-neutral-700 transition-colors"
                     aria-label="Перейти к целям тренировки"
                 >
                     Узнать больше

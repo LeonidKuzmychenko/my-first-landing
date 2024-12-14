@@ -8,15 +8,15 @@ interface CardProps {
 
 const AchievementsSection: React.FC = () => {
     const cards: CardProps[] = [
-        {src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`, title: "Кубок 2021", text: "Крутой качок"},
-        {src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`, title: "Кубок 2022", text: "Крутой качок"},
-        {src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`, title: "Кубок 2023", text: "Крутой качок"},
-        {src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`, title: "Кубок 2024", text: "Крутой качок"}
+        {src: `${process.env.PUBLIC_URL}/images/achievement.jpg`, title: "Кубок 2021", text: "Крутой качок"},
+        {src: `${process.env.PUBLIC_URL}/images/achievement.jpg`, title: "Кубок 2022", text: "Крутой качок"},
+        {src: `${process.env.PUBLIC_URL}/images/achievement.jpg`, title: "Кубок 2023", text: "Крутой качок"},
+        {src: `${process.env.PUBLIC_URL}/images/achievement.jpg`, title: "Кубок 2024", text: "Крутой качок"}
     ];
 
     return (
         <div className="flex flex-col gap-10 w-full p-5 md:p-10" aria-labelledby="achievements-title">
-            <h2 id="achievements-title" className="text-center text-3xl font-bold leading-tight">
+            <h2 id="achievements-title" className="text-center text-4xl font-bold leading-tight">
                 Спортивные достижения
             </h2>
 
@@ -47,7 +47,7 @@ const AchievementsSection: React.FC = () => {
                         <h3 className="text-2xl font-semibold leading-snug">
                             {card.title}
                         </h3>
-                        <p className="text-base font-normal leading-relaxed">
+                        <p className="text-lg font-normal leading-relaxed">
                             {card.text}
                         </p>
                         <a

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomeSection from './components/sections/HomeSection';
-import ServicesSection from './components/sections/ServicesSection';
+import MotivationSection from './components/sections/MotivationSection';
 import AchievementsSection from './components/sections/AchievementsSection';
 import ContactsSection from "./components/sections/ContactsSection";
 import GoalsSection from "./components/sections/GoalsSection";
@@ -25,7 +25,7 @@ const App: React.FC = () => {
     const sections: SectionData[] = [
         {id: 'home', title: 'Главная', content: <HomeSection/>},
         {id: 'goals', title: 'Цели', content: <GoalsSection/>},
-        {id: 'services', title: 'Услуги', content: <ServicesSection/>},
+        {id: 'motivation', title: 'Мотивация', content: <MotivationSection/>},
         {id: 'achievements', title: 'Достижения', content: <AchievementsSection/>},
         {id: 'clients', title: 'Клиенты', content: <HorizontalGallery/>},
         {id: 'contacts', title: 'Контакты', content: <ContactsSection/>}

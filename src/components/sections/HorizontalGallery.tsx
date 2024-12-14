@@ -23,10 +23,11 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, alt }) => (
 
 const HorizontalGallery: React.FC = () => {
     const images: string[] = [
-        `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`,
-        `${process.env.PUBLIC_URL}/images/HomeGym.jpg`,
-        `${process.env.PUBLIC_URL}/images/HomeGym.jpg`,
-        `${process.env.PUBLIC_URL}/images/HomeGym.jpg`,
+        `${process.env.PUBLIC_URL}/images/before-after-5.jpg`,
+        `${process.env.PUBLIC_URL}/images/before-after-2.jpg`,
+        `${process.env.PUBLIC_URL}/images/before-after-3.jpg`,
+        `${process.env.PUBLIC_URL}/images/before-after-4.jpg`,
+        `${process.env.PUBLIC_URL}/images/before-after-1.jpg`
     ];
 
     const [activeIndex, setActiveIndex] = useState(0);
@@ -60,7 +61,7 @@ const HorizontalGallery: React.FC = () => {
         >
             <h2
                 id="gallery-title"
-                className="text-center text-3xl font-bold"
+                className="text-center text-4xl font-bold"
             >
                 Спортивные достижения клиентов
             </h2>

@@ -34,7 +34,7 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
         >
             {title}
         </h3>
-        <p className="text-base text-center text-gray-600 pointer-events-none">
+        <p className="text-lg text-center text-gray-600 pointer-events-none">
             {text}
         </p>
         <a
@@ -51,7 +51,7 @@ const GoalsSection: React.FC = () => {
     const cards: CardProps[] = [
         {
             src: `${process.env.PUBLIC_URL}/icons/figure.svg`,
-            title: "Похудение и красивые формы",
+            title: "Эстетическая форма",
             text: "Большой опыт работы фитнес инструктором позволяет мне эффективно решать вопросы с лишним весом"
         },
         {
@@ -68,7 +68,7 @@ const GoalsSection: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center gap-10 w-full p-5 md:p-10" aria-labelledby="goals-section-title">
-            <h2 id="goals-section-title" className="text-3xl font-bold text-center">
+            <h2 id="goals-section-title" className="text-4xl font-bold text-center">
                 Персональные тренировки — лучший выбор для вас и вашего тела
             </h2>
 

@@ -1,104 +1,22 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
-
-interface MenuItem {
-    id: string;
-    title: string;
-}
+// Header.tsx
+import React, { useState, useCallback } from 'react';
+import {MenuItem, useActiveSection} from "../services/MenuService";
 
 interface MenuProps {
     items: MenuItem[];
 }
 
 const Header: React.FC<MenuProps> = ({ items }) => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [activeId, setActiveId] = useState<string | null>(null);
+    // Меню открыто/закрыто
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Используем словарь intersectionRatio: { sectionId: ratio }
-    const ratioMap = useRef<Record<string, number>>({});
-    const frameId = useRef<number | null>(null);
+    // Логика (isScrolled, activeId) берём из нашего кастомного хука
+    const { isScrolled, activeId } = useActiveSection(items);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 0);
-        };
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    useEffect(() => {
-        let observer: IntersectionObserver;
-
-        const createObserver = () => {
-            // Массив thresholds, чтобы получать коллбэки при любом изменении процента видимости
-            const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
-
-            observer = new IntersectionObserver((entries) => {
-                // Сначала записываем все intersectionRatio в ratioMap
-                entries.forEach(entry => {
-                    const { id } = entry.target as HTMLElement;
-                    if (entry.isIntersecting) {
-                        ratioMap.current[id] = entry.intersectionRatio;
-                    } else {
-                        ratioMap.current[id] = 0;
-                    }
-                });
-
-                // Чтобы не «дёргать» state на каждый entry,
-                // используем requestAnimationFrame (один раз на кадр)
-                if (frameId.current) {
-                    cancelAnimationFrame(frameId.current);
-                }
-                frameId.current = requestAnimationFrame(() => {
-                    // Вычисляем, какая секция имеет максимальный intersectionRatio
-                    let maxRatio = 0;
-                    let maxId: string | null = null;
-                    Object.entries(ratioMap.current).forEach(([sectionId, ratio]) => {
-                        if (ratio > maxRatio) {
-                            maxRatio = ratio;
-                            maxId = sectionId;
-                        }
-                    });
-
-                    // Обновляем состояние только если действительно сменился активный ID
-                    if (maxId && maxId !== activeId) {
-                        setActiveId(maxId);
-                    }
-                });
-            }, { threshold: thresholds });
-
-            // Навешиваем на секции
-            const sections = items
-                .map(({ id }) => document.getElementById(id))
-                .filter(Boolean);
-
-            sections.forEach(section => {
-                if (section) observer.observe(section);
-            });
-        };
-
-        createObserver();
-
-        const handleResize = () => {
-            observer.disconnect();
-            createObserver();
-            if (window.innerWidth >= 768) {
-                setIsMenuOpen(false);
-            }
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => {
-            observer.disconnect();
-            window.removeEventListener('resize', handleResize);
-            if (frameId.current) cancelAnimationFrame(frameId.current);
-        };
-    }, [items, activeId]);
-
+    // Тоггл бургер-меню
     const toggleMenu = useCallback(() => setIsMenuOpen(prev => !prev), []);
+
+    // Закрыть меню при клике на пункт
     const handleLinkClick = useCallback(() => setIsMenuOpen(false), []);
 
     return (
@@ -140,7 +58,7 @@ const Header: React.FC<MenuProps> = ({ items }) => {
                         >
                             <a
                                 href={`#${id}`}
-                                className="text-white text-center w-full h-full block"
+                                className="text-white text-center text-lg w-full h-full block"
                                 tabIndex={0}
                                 role="menuitem"
                                 aria-current={activeId === id ? 'page' : undefined}
