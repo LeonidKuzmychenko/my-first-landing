@@ -24,7 +24,7 @@ const MotivationSection: React.FC = () => {
                                 tabIndex={0}
                                 className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                             >
-                                * Персональных подход
+                                * Персональный подход
                             </li>
                             <li
                                 role="listitem"
