@@ -3,7 +3,7 @@ import React from 'react';
 const MotivationSection: React.FC = () => {
     return (
         <div
-            className="flex h-[400px] md:h-[600px] bg-neutral-800 text-white"
+            className="flex p-10 md:p-0 md:h-[700px] bg-neutral-800 text-white"
             aria-labelledby="motivation-section-title"
             role="region"
         >
@@ -11,10 +11,9 @@ const MotivationSection: React.FC = () => {
                 <div className="flex items-center h-full p-10">
                     <div className="flex flex-col gap-10 md:gap-5">
                         <h2 id="motivation-section-title" className="text-4xl font-bold">
-                            <div className="flex flex-col text-center md:text-end">
-                                <span tabIndex={0} aria-label="Тренировки, которые изменят твою жизнь">
-                                    Тренировки, которые изменят твою жизнь
-                                </span>
+                            <div tabIndex={0} className="flex flex-col text-center" aria-label="Тренировки, которые изменят твою жизнь">
+                                <span>Тренировки,</span>
+                                <span>которые изменят твою жизнь</span>
                             </div>
                         </h2>
                         <p className="text-center text-2xl">7 дней и ты почувствуешь разницу</p>
