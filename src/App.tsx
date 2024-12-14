@@ -19,7 +19,7 @@ export interface SectionData {
 const App: React.FC = () => {
 
     useEffect(() => {
-        document.title = "Персональный тренер Степан Бандера";
+        document.title = "Персональный тренер Евгений Московцев";
     }, []);
 
     const sections: SectionData[] = [

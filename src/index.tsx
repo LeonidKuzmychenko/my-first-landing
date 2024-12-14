@@ -9,6 +9,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <App aria-label="Приложение Персональный тренер Степан Бандера"/>
+        <App aria-label="Приложение Персональный тренер Евгений Московцев"/>
     </React.StrictMode>
 );

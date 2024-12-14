@@ -1,7 +1,7 @@
 import React from 'react';
 
 const HomeSection: React.FC = () => {
-    const backgroundUrl = `${process.env.PUBLIC_URL}/images/HomeGym.jpg`;
+    const backgroundUrl = `${process.env.PUBLIC_URL}/images/background.jpg`;
 
     return (
         <div
@@ -28,9 +28,9 @@ const HomeSection: React.FC = () => {
                         <p
                             className="text-3xl font-bold leading-tight"
                             tabIndex={0}
-                            aria-label="Имя тренера: Степан Бандера"
+                            aria-label="Имя тренера: Евгений Московцев"
                         >
-                            Степан Бандера
+                            Евгений Московцев
                         </p>
                     </div>
                 </h1>

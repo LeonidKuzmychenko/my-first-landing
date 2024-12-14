@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
         }}
     >
         <div
-            className="w-full aspect-square rounded-full overflow-hidden"
+            className="w-36 aspect-square rounded-full overflow-hidden"
         >
             <img
                 src={src}
@@ -50,17 +50,17 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
 const GoalsSection: React.FC = () => {
     const cards: CardProps[] = [
         {
-            src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`,
+            src: `${process.env.PUBLIC_URL}/icons/figure.svg`,
             title: "Похудение и красивые формы",
             text: "Большой опыт работы фитнес инструктором позволяет мне эффективно решать вопросы с лишним весом"
         },
         {
-            src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`,
+            src: `${process.env.PUBLIC_URL}/icons/muscle.svg`,
             title: "Набор массы тела",
             text: "Как правильно набрать мышечную массу без вреда для суставов и связок. Современные методики тренировок"
         },
         {
-            src: `${process.env.PUBLIC_URL}/images/AchivementsKachok.jpg`,
+            src: `${process.env.PUBLIC_URL}/icons/diet.svg`,
             title: "Составление питания",
             text: "Правильное питание - это 70% результата. Программы питания и четкий план, когда, сколько и что кушать"
         }

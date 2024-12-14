@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Персональный тренер. Достижения, цели, услуги и тренировки.",
-  "author": "Грыня Господень",
+  "author": "Leonid Kuzmychenko",
   "dependencies": {
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.1",

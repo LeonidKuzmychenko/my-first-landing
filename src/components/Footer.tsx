@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
                         aria-label="Авторские права"
                         className="text-sm font-medium leading-snug"
                     >
-                        Copyright © 2024. Created by Грыня Господень
+                        Copyright © 2024. Created by Leonid Kuzmychenko
                     </p>
                 </div>
             </div>

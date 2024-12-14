@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 
 interface MenuItem {
     id: string;
@@ -14,45 +14,75 @@ const Header: React.FC<MenuProps> = ({ items }) => {
     const [activeId, setActiveId] = useState<string | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Обработчик прокрутки: устанавливает флаг isScrolled
+    // Используем словарь intersectionRatio: { sectionId: ratio }
+    const ratioMap = useRef<Record<string, number>>({});
+    const frameId = useRef<number | null>(null);
+
     useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 0);
-        window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Инициализация состояния при загрузке
-        return () => window.removeEventListener('scroll', handleScroll);
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
-    // Отслеживание пересечения секций с разным threshold для разных экранов
     useEffect(() => {
         let observer: IntersectionObserver;
 
         const createObserver = () => {
-            const threshold = window.innerWidth < 768 ? 0.1 : 0.7;
+            // Массив thresholds, чтобы получать коллбэки при любом изменении процента видимости
+            const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
 
-            observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            setActiveId(entry.target.id);
+            observer = new IntersectionObserver((entries) => {
+                // Сначала записываем все intersectionRatio в ratioMap
+                entries.forEach(entry => {
+                    const { id } = entry.target as HTMLElement;
+                    if (entry.isIntersecting) {
+                        ratioMap.current[id] = entry.intersectionRatio;
+                    } else {
+                        ratioMap.current[id] = 0;
+                    }
+                });
+
+                // Чтобы не «дёргать» state на каждый entry,
+                // используем requestAnimationFrame (один раз на кадр)
+                if (frameId.current) {
+                    cancelAnimationFrame(frameId.current);
+                }
+                frameId.current = requestAnimationFrame(() => {
+                    // Вычисляем, какая секция имеет максимальный intersectionRatio
+                    let maxRatio = 0;
+                    let maxId: string | null = null;
+                    Object.entries(ratioMap.current).forEach(([sectionId, ratio]) => {
+                        if (ratio > maxRatio) {
+                            maxRatio = ratio;
+                            maxId = sectionId;
                         }
                     });
-                },
-                { threshold }
-            );
 
-            const sections = items.map(({ id }) => document.getElementById(id)).filter(Boolean);
+                    // Обновляем состояние только если действительно сменился активный ID
+                    if (maxId && maxId !== activeId) {
+                        setActiveId(maxId);
+                    }
+                });
+            }, { threshold: thresholds });
 
-            if (sections.length === 0) {
-                console.warn('No sections found for provided item ids:', items);
-            }
+            // Навешиваем на секции
+            const sections = items
+                .map(({ id }) => document.getElementById(id))
+                .filter(Boolean);
 
-            sections.forEach(section => section && observer.observe(section as Element));
+            sections.forEach(section => {
+                if (section) observer.observe(section);
+            });
         };
 
         createObserver();
 
         const handleResize = () => {
-            // Удаляем старый observer при изменении ширины экрана
             observer.disconnect();
             createObserver();
             if (window.innerWidth >= 768) {
@@ -61,26 +91,23 @@ const Header: React.FC<MenuProps> = ({ items }) => {
         };
 
         window.addEventListener('resize', handleResize);
-
         return () => {
             observer.disconnect();
             window.removeEventListener('resize', handleResize);
+            if (frameId.current) cancelAnimationFrame(frameId.current);
         };
-    }, [items]);
+    }, [items, activeId]);
 
-    // Обработчик клика по бургер-меню
     const toggleMenu = useCallback(() => setIsMenuOpen(prev => !prev), []);
-
-    // Закрытие меню после клика на элемент
     const handleLinkClick = useCallback(() => setIsMenuOpen(false), []);
 
     return (
         <header
-            className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center 
+            className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center
                         ${isScrolled || isMenuOpen ? 'bg-neutral-800 shadow-md' : 'bg-transparent'}`}
             aria-label="Main Navigation"
         >
-            <nav className="flex justify-end items-center transition-colors duration-300 text-white w-full" role="navigation">
+            <nav className="flex justify-end items-center text-white w-full" role="navigation">
                 <button
                     type="button"
                     className="relative w-10 h-10 flex md:hidden justify-center items-center"
@@ -89,22 +116,27 @@ const Header: React.FC<MenuProps> = ({ items }) => {
                     aria-label="Toggle menu"
                 >
                     <img
-                        src={isMenuOpen ? `${process.env.PUBLIC_URL}/icons/close-btn.svg` : `${process.env.PUBLIC_URL}/icons/menu-btn.svg`}
+                        src={isMenuOpen
+                            ? `${process.env.PUBLIC_URL}/icons/close-btn.svg`
+                            : `${process.env.PUBLIC_URL}/icons/menu-btn.svg`
+                        }
                         alt={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
                         className="w-full h-full object-contain"
                     />
                 </button>
+
                 <ul
-                    className={`py-2 md:flex flex-col md:flex-row justify-center w-full 
+                    className={`py-2 md:flex flex-col md:flex-row justify-center w-full
                                ${isMenuOpen ? 'flex absolute top-16 left-0 right-0 bg-neutral-800' : 'hidden md:flex'}`}
                     role="menubar"
                 >
-                    {items.map(({ id, title }, index) => (
+                    {items.map(({ id, title }) => (
                         <li
                             key={id}
                             role="none"
                             onClick={handleLinkClick}
-                            className={`cursor-pointer py-2 px-4 hover:underline ${activeId === id ? 'font-bold' : ''}`}
+                            className={`cursor-pointer py-2 px-4 hover:underline
+                                        ${activeId === id ? 'font-bold' : ''}`}
                         >
                             <a
                                 href={`#${id}`}
