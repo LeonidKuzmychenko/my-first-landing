@@ -24,6 +24,7 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
         >
             <img
                 src={src}
+                loading="lazy"
                 alt={`Изображение для цели: ${title}`}
                 className="w-full h-full object-cover pointer-events-none"
             />

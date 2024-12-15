@@ -40,6 +40,7 @@ const AchievementsSection: React.FC = () => {
                         >
                             <img
                                 src={card.src}
+                                loading="lazy"
                                 alt={`Изображение достижения ${card.title}`}
                                 className="w-full h-full object-cover"
                             />

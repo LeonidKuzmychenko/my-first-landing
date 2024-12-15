@@ -12,6 +12,7 @@
     "ajv": "^8.17.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^7.0.2",
     "react-scripts": "5.0.1",
     "tailwindcss": "^3.4.16",
@@ -24,9 +25,10 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "update-deps": "npx npm-check-updates -u && npm install && npm audit fix"
+    "update-deps": "npx npm-check-updates -u && npm cache clean --force && npm install && npm audit fix"
   },
   "devDependencies": {
+    "@types/react-helmet": "^6.1.11",
     "gh-pages": "^6.2.0"
   },
   "browserslist": {

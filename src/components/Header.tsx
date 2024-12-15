@@ -38,6 +38,7 @@ const Header: React.FC<MenuProps> = ({ items }) => {
                             ? `${process.env.PUBLIC_URL}/icons/close-btn.svg`
                             : `${process.env.PUBLIC_URL}/icons/menu-btn.svg`
                         }
+                        loading="lazy"
                         alt={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
                         className="w-full h-full object-contain"
                     />

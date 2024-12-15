@@ -8,4 +8,4 @@ Disallow: /my-first-landing/not-found
 Allow: /my-first-landing/
 
 # Sitemap URL
-Sitemap: http://localhost:3000/my-first-landing/sitemap.xml
+Sitemap: https://leonidkuzmychenko.github.io/my-first-landing/sitemap.xml
