@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface GalleryItemProps {
     src: string;
@@ -32,6 +32,8 @@ const HorizontalGallery: React.FC = () => {
     ];
 
     const [activeIndex, setActiveIndex] = useState(0);
+    const galleryRef = useRef<HTMLDivElement | null>(null);
+    const startXRef = useRef<number | null>(null);
 
     const handleDotClick = (index: number) => {
         setActiveIndex(index);
@@ -39,12 +41,55 @@ const HorizontalGallery: React.FC = () => {
     };
 
     const scrollToImage = (index: number) => {
-        const galleryElement = document.getElementById('gallery-scrollarea');
+        const galleryElement = galleryRef.current;
         if (galleryElement) {
             const scrollAmount = index * galleryElement.clientWidth;
             galleryElement.scrollTo({ left: scrollAmount, behavior: 'smooth' });
         }
     };
+
+    const handleTouchStart = (e: TouchEvent) => {
+        const touch = e.touches[0];
+        startXRef.current = touch.clientX;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+        if (startXRef.current === null) return;
+        const touch = e.touches[0];
+        const diffX = startXRef.current - touch.clientX;
+        const threshold = 50; // Пороговое значение для свайпа
+        if (diffX > threshold) {
+            const nextIndex = Math.min(activeIndex + 1, images.length - 1);
+            setActiveIndex(nextIndex);
+            scrollToImage(nextIndex);
+            startXRef.current = null; // Сброс начальной точки
+        } else if (diffX < -threshold) {
+            const prevIndex = Math.max(activeIndex - 1, 0);
+            setActiveIndex(prevIndex);
+            scrollToImage(prevIndex);
+            startXRef.current = null; // Сброс начальной точки
+        }
+    };
+
+    const handleTouchEnd = () => {
+        startXRef.current = null; // Сброс начальной точки после завершения свайпа
+    };
+
+    useEffect(() => {
+        const galleryElement = galleryRef.current;
+        if (galleryElement) {
+            galleryElement.addEventListener('touchstart', handleTouchStart);
+            galleryElement.addEventListener('touchmove', handleTouchMove);
+            galleryElement.addEventListener('touchend', handleTouchEnd);
+        }
+        return () => {
+            if (galleryElement) {
+                galleryElement.removeEventListener('touchstart', handleTouchStart);
+                galleryElement.removeEventListener('touchmove', handleTouchMove);
+                galleryElement.removeEventListener('touchend', handleTouchEnd);
+            }
+        };
+    }, [activeIndex]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -70,6 +115,7 @@ const HorizontalGallery: React.FC = () => {
             <div
                 className="relative w-full overflow-hidden rounded-lg"
                 id="gallery-scrollarea"
+                ref={galleryRef}
             >
                 <div className="flex w-full h-full">
                     {images.map((image, index) => (
