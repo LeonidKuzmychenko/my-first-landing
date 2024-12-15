@@ -111,3 +111,16 @@ export function useActiveSection(items: MenuItem[]): UseActiveSectionResult {
 
     return { isScrolled, activeId };
 }
+
+export const useResponsiveMenu = (setIsMenuOpen: (value: boolean) => void) => {
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [setIsMenuOpen]);
+};

@@ -29,33 +29,34 @@ const Footer: React.FC = () => {
                 </h2>
 
                 <div className="flex flex-col md:flex-row justify-between gap-4 flex-wrap">
-                    <div className="flex flex-col gap-2 flex-1 text-center">
-                        <h3 tabIndex={0} aria-label="Адрес фитнес-клуба" className="text-xl font-semibold leading-snug">
-                            Адрес
+                    <div className="flex flex-row md:flex-col gap-2 flex-1 text-center">
+                        <h3 tabIndex={0} aria-label="Адрес фитнес-клуба"
+                            className="flex justify-center items-center text-xl font-semibold leading-snug">
+                            Адрес<span className="block md:hidden">:</span>
                         </h3>
-                        <span tabIndex={0} aria-label="Фитнес-клуб Sport Studio 55" className="text-base font-normal leading-relaxed">
+                        <span tabIndex={0} aria-label="Фитнес-клуб Sport Studio 55" className="flex justify-center items-center mt-1 text-base font-normal leading-relaxed">
                             г. Одесса, с. Лиманка, ул. Жемчужная 1, Sport Studio 55
                         </span>
                     </div>
-                    <div className="flex flex-col gap-2 flex-1 text-center">
-                        <h3 tabIndex={0} aria-label="Телефон для связи" className="text-xl font-semibold leading-snug">
-                            Телефон
+                    <div className="flex flex-row md:flex-col gap-2 flex-1 text-center">
+                        <h3 tabIndex={0} aria-label="Телефон для связи" className="flex justify-center items-center text-xl font-semibold leading-snug">
+                            Телефон<span className="block md:hidden">:</span>
                         </h3>
                         <a
                             href="tel:+380671322223"
-                            className="text-base font-normal leading-relaxed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
+                            className="flex justify-center items-center mt-1 leading-relaxed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                             aria-label="Позвонить по номеру +380671322223"
                         >
                             +380671322223
                         </a>
                     </div>
-                    <div className="flex flex-col gap-2 flex-1 text-center">
+                    <div className="flex flex-row md:flex-col gap-2 flex-1 text-center">
                         <h3
                             tabIndex={0}
                             aria-label="Социальные сети"
-                            className="text-xl font-semibold leading-snug"
+                            className="flex justify-center items-center text-xl font-semibold leading-snug"
                         >
-                            Социальные сети
+                            Социальные сети<span className="block md:hidden">:</span>
                         </h3>
                         <div className="flex justify-center gap-2">
                             {cards.map((card, index) => (
@@ -64,7 +65,7 @@ const Footer: React.FC = () => {
                                     href={card.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="h-8 w-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
+                                    className="flex justify-center items-center h-8 w-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                                     aria-label={`Открыть страницу в ${card.alt}`}
                                 >
                                     <img

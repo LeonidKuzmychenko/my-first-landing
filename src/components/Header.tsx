@@ -1,27 +1,23 @@
-// Header.tsx
 import React, { useState, useCallback } from 'react';
-import {MenuItem, useActiveSection} from "../services/MenuService";
+import { MenuItem, useActiveSection, useResponsiveMenu } from "../services/MenuService";
 
 interface MenuProps {
     items: MenuItem[];
 }
 
 const Header: React.FC<MenuProps> = ({ items }) => {
-    // Меню открыто/закрыто
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    // Логика (isScrolled, activeId) берём из нашего кастомного хука
     const { isScrolled, activeId } = useActiveSection(items);
 
-    // Тоггл бургер-меню
     const toggleMenu = useCallback(() => setIsMenuOpen(prev => !prev), []);
-
-    // Закрыть меню при клике на пункт
     const handleLinkClick = useCallback(() => setIsMenuOpen(false), []);
+
+    // Используем хук для закрытия меню при изменении ширины экрана
+    useResponsiveMenu(setIsMenuOpen);
 
     return (
         <header
-            className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center
+            className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center 
                         ${isScrolled || isMenuOpen ? 'bg-neutral-800 shadow-md' : 'bg-transparent'}`}
             aria-label="Main Navigation"
         >
@@ -36,8 +32,7 @@ const Header: React.FC<MenuProps> = ({ items }) => {
                     <img
                         src={isMenuOpen
                             ? `${process.env.PUBLIC_URL}/icons/close-btn.svg`
-                            : `${process.env.PUBLIC_URL}/icons/menu-btn.svg`
-                        }
+                            : `${process.env.PUBLIC_URL}/icons/menu-btn.svg`}
                         loading="lazy"
                         alt={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
                         className="w-full h-full object-contain"
@@ -45,7 +40,7 @@ const Header: React.FC<MenuProps> = ({ items }) => {
                 </button>
 
                 <ul
-                    className={`py-2 md:flex flex-col md:flex-row justify-center w-full
+                    className={`py-2 md:flex flex-col md:flex-row justify-center w-full 
                                ${isMenuOpen ? 'flex absolute top-16 left-0 right-0 bg-neutral-800' : 'hidden md:flex'}`}
                     role="menubar"
                 >
@@ -54,7 +49,7 @@ const Header: React.FC<MenuProps> = ({ items }) => {
                             key={id}
                             role="none"
                             onClick={handleLinkClick}
-                            className={`cursor-pointer py-2 px-4 hover:underline
+                            className={`cursor-pointer py-2 px-4 hover:underline 
                                         ${activeId === id ? 'font-bold' : ''}`}
                         >
                             <a
