@@ -45,7 +45,7 @@ const MotivationSection: React.FC = () => {
                 </div>
                 <div className="h-full hidden md:block">
                     <img
-                        src={`${process.env.PUBLIC_URL}/images/eugen_without_background.png`}
+                        src={`${process.env.PUBLIC_URL}/images/eugen_without_background.webp`}
                         loading="lazy"
                         className="h-full w-full object-cover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                         alt="Изображение, отображающее уважение и признание"

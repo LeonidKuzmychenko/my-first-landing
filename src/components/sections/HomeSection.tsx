@@ -1,7 +1,7 @@
 import React from 'react';
 
 const HomeSection: React.FC = () => {
-    const backgroundUrl = `${process.env.PUBLIC_URL}/images/background.jpg`;
+    const backgroundUrl = `${process.env.PUBLIC_URL}/images/background.webp`;
 
     return (
         <div
@@ -19,7 +19,7 @@ const HomeSection: React.FC = () => {
                 >
                     <div className="flex flex-col items-center text-center">
                         <p
-                            className="text-4xl font-semibold leading-snug"
+                            className="text-4xl font-bold leading-snug"
                             tabIndex={0}
                             aria-label="Профессия: Персональный тренер"
                         >

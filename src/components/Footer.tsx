@@ -2,7 +2,7 @@ import React from 'react';
 
 interface SocialCard {
     src: string;
-    url: string
+    url: string;
     alt: string;
 }
 
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                 <div className="flex flex-col md:flex-row justify-between gap-4 flex-wrap">
                     <div className="flex flex-row md:flex-col gap-2 flex-1 text-center">
                         <h3 tabIndex={0} aria-label="Адрес фитнес-клуба"
-                            className="flex justify-center items-center text-xl font-semibold leading-snug">
+                            className="flex justify-center items-center text-xl font-bold leading-snug">
                             Адрес<span className="block md:hidden">:</span>
                         </h3>
                         <span tabIndex={0} aria-label="Фитнес-клуб Sport Studio 55" className="flex justify-center items-center mt-1 text-base font-normal leading-relaxed">
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
                         </span>
                     </div>
                     <div className="flex flex-row md:flex-col gap-2 flex-1 text-center">
-                        <h3 tabIndex={0} aria-label="Телефон для связи" className="flex justify-center items-center text-xl font-semibold leading-snug">
+                        <h3 tabIndex={0} aria-label="Телефон для связи" className="flex justify-center items-center text-xl font-bold leading-snug">
                             Телефон<span className="block md:hidden">:</span>
                         </h3>
                         <a
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                         <h3
                             tabIndex={0}
                             aria-label="Социальные сети"
-                            className="flex justify-center items-center text-xl font-semibold leading-snug"
+                            className="flex justify-center items-center text-xl font-bold leading-snug"
                         >
                             Социальные сети<span className="block md:hidden">:</span>
                         </h3>
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-center items-end flex-1 text-center">
+                <div className="flex justify-center items-end flex-1 text-center gap-5">
                     <p
                         tabIndex={0}
                         aria-label="Авторские права"
@@ -87,6 +87,23 @@ const Footer: React.FC = () => {
                     >
                         Copyright © 2024. Created by Leonid Kuzmychenko
                     </p>
+                    <a
+                        tabIndex={0}
+                        aria-label="Политика конфиденциальности"
+                        href="https://www.apache.org/licenses/LICENSE-2.0"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        className="text-sm font-medium leading-snug cursor-pointer relative group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
+                    >
+                        Политика конфиденциальности
+                        <div
+                            className="absolute bottom-full left-0 mb-2 px-3 py-2 text-xs text-white bg-neutral-800 rounded-md hidden group-hover:block group-focus:block whitespace-normal w-full"
+                        >
+                            Этот веб-сайт использует технологии с открытым исходным кодом, предоставленные по лицензии Apache License 2.0.
+                        </div>
+                    </a>
+
+
                 </div>
             </div>
         </footer>

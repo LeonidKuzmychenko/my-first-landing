@@ -33,6 +33,35 @@ const App: React.FC = () => {
 
     return (
         <>
+            <style >{`
+            @font-face {
+                font-family: 'Roboto';
+                src: url('${process.env.PUBLIC_URL}/fonts/Roboto-Regular.ttf') format('ttf');
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: 'Roboto';
+                src: url('${process.env.PUBLIC_URL}/fonts/Roboto-Medium.ttf') format('ttf');
+                font-weight: 500;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: 'Roboto';
+                src: url('${process.env.PUBLIC_URL}/Roboto-Bold.ttf') format('ttf');
+                font-weight: 700;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: 'Roboto';
+                src: url('${process.env.PUBLIC_URL}/Roboto-Black.ttf') format('ttf');
+                font-weight: 900;
+                font-style: normal;
+            }
+            `}</style>
             <Router basename="/my-first-landing">
                 <div className="flex flex-col min-h-screen" role="application" aria-labelledby="app-title">
                     <Routes>

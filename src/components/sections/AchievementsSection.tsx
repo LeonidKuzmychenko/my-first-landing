@@ -8,10 +8,10 @@ interface CardProps {
 
 const AchievementsSection: React.FC = () => {
     const cards: CardProps[] = [
-        {src: `${process.env.PUBLIC_URL}/images/achievement.jpg`, title: "Кубок 2021", text: "Крутой качок"},
-        {src: `${process.env.PUBLIC_URL}/images/achievement.jpg`, title: "Кубок 2022", text: "Крутой качок"},
-        {src: `${process.env.PUBLIC_URL}/images/achievement.jpg`, title: "Кубок 2023", text: "Крутой качок"},
-        {src: `${process.env.PUBLIC_URL}/images/achievement.jpg`, title: "Кубок 2024", text: "Крутой качок"}
+        {src: `${process.env.PUBLIC_URL}/images/achievement.webp`, title: "Кубок 2021", text: "Крутой качок"},
+        {src: `${process.env.PUBLIC_URL}/images/achievement.webp`, title: "Кубок 2022", text: "Крутой качок"},
+        {src: `${process.env.PUBLIC_URL}/images/achievement.webp`, title: "Кубок 2023", text: "Крутой качок"},
+        {src: `${process.env.PUBLIC_URL}/images/achievement.webp`, title: "Кубок 2024", text: "Крутой качок"}
     ];
 
     return (
@@ -45,7 +45,7 @@ const AchievementsSection: React.FC = () => {
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        <h3 className="text-2xl font-semibold leading-snug">
+                        <h3 className="text-2xl font-bold leading-snug">
                             {card.title}
                         </h3>
                         <p className="text-lg font-normal leading-relaxed">

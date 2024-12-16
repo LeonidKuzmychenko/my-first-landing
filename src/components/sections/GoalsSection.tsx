@@ -31,7 +31,7 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
         </div>
         <h3
             id={`card-title-${title}`}
-            className="text-2xl font-semibold text-center pointer-events-none"
+            className="text-2xl font-bold text-center pointer-events-none"
         >
             {title}
         </h3>
