@@ -1,4 +1,3 @@
-// useActiveSection.ts
 import { useState, useEffect, useRef } from 'react';
 
 export interface MenuItem {
@@ -11,48 +10,32 @@ interface UseActiveSectionResult {
     activeId: string | null;
 }
 
-/**
- * Кастомный хук для:
- * 1) Флага isScrolled (прокручена ли страница)
- * 2) Определения текущей активной секции (activeId) на основе IntersectionObserver
- */
 export function useActiveSection(items: MenuItem[]): UseActiveSectionResult {
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeId, setActiveId] = useState<string | null>(null);
 
-    // Словарь для хранения intersectionRatio каждой секции: { sectionId: ratio }
     const ratioMap = useRef<Record<string, number>>({});
     const frameId = useRef<number | null>(null);
 
-    /**
-     *  Отслеживаем прокрутку страницы, чтобы установить isScrolled=true,
-     *  когда пользователь проскроллит чуть больше 0px.
-     */
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 0);
         };
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll(); // Инициализация состояния при загрузке
+
+        window.addEventListener('scroll', handleScroll, { passive: true }); // ✅ Установлен passive: true
+        handleScroll();
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
-    /**
-     * Подключаем IntersectionObserver, чтобы вычислять, какой элемент
-     * в данный момент покрывает наибольший % вьюпорта (intersectionRatio).
-     */
     useEffect(() => {
         let observer: IntersectionObserver;
 
         const createObserver = () => {
-            // thresholds: массив значений от 0 до 1 (шаг 0.05 или 0.01).
-            // При любом изменении intersectionRatio выше порога будет коллбэк
             const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
 
             observer = new IntersectionObserver((entries) => {
-                // Записываем пересечения в ratioMap
                 entries.forEach(entry => {
                     const { id } = entry.target as HTMLElement;
                     if (entry.isIntersecting) {
@@ -62,10 +45,10 @@ export function useActiveSection(items: MenuItem[]): UseActiveSectionResult {
                     }
                 });
 
-                // Обновляем стейт один раз за кадр, используя requestAnimationFrame
                 if (frameId.current) {
                     cancelAnimationFrame(frameId.current);
                 }
+
                 frameId.current = requestAnimationFrame(() => {
                     let maxRatio = 0;
                     let maxId: string | null = null;
@@ -77,14 +60,12 @@ export function useActiveSection(items: MenuItem[]): UseActiveSectionResult {
                         }
                     });
 
-                    // Только если действительно сменился активный ID — меняем стейт
                     if (maxId && maxId !== activeId) {
                         setActiveId(maxId);
                     }
                 });
             }, { threshold: thresholds });
 
-            // Подключаем observer к секциям
             const sections = items
                 .map(({ id }) => document.getElementById(id))
                 .filter(Boolean);
@@ -101,7 +82,7 @@ export function useActiveSection(items: MenuItem[]): UseActiveSectionResult {
             createObserver();
         };
 
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', handleResize, { passive: true }); // ✅ Установлен passive: true
         return () => {
             observer.disconnect();
             window.removeEventListener('resize', handleResize);
@@ -120,7 +101,7 @@ export const useResponsiveMenu = (setIsMenuOpen: (value: boolean) => void) => {
             }
         };
 
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', handleResize, { passive: true }); // ✅ Установлен passive: true
         return () => window.removeEventListener('resize', handleResize);
     }, [setIsMenuOpen]);
 };
