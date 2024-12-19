@@ -63,18 +63,14 @@ const App: React.FC = () => {
             }
             `}</style>
             <Router basename="/my-first-landing">
-                <div className="flex flex-col min-h-screen" role="application" aria-labelledby="app-title">
+                <div className="flex flex-col min-h-screen" role="application" aria-labelledby="home-title">
                     <Routes>
                         <Route path="/" element={
                             <>
                                 <Header items={sections.map(item => ({id: item.id, title: item.title}))}/>
                                 <main role="main">
                                     {sections.map(({id, content}) => (
-                                        <section
-                                            key={id}
-                                            id={id}
-                                            role="region"
-                                        >
+                                        <section key={id} id={id} aria-labelledby={`${id}-title`}>
                                             {content}
                                         </section>
                                     ))}

@@ -96,17 +96,17 @@ const HorizontalGallery: React.FC = () => {
             scrollToImage(activeIndex);
         };
 
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', handleResize, { passive: true });
         return () => window.removeEventListener('resize', handleResize);
     }, [activeIndex]);
 
     return (
         <section
             className="flex flex-col gap-10 relative w-full h-[600px] md:h-[800px] max-w-full overflow-hidden p-5 md:p-10 bg-neutral-800 text-white"
-            aria-labelledby="gallery-title"
+            aria-labelledby="clients-title"
         >
             <h2
-                id="gallery-title"
+                id="clients-title"
                 className="text-center text-4xl font-bold"
             >
                 Спортивные достижения клиентов

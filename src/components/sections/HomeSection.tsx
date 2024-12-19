@@ -7,14 +7,14 @@ const HomeSection: React.FC = () => {
         <div
             style={{ backgroundImage: `url(${backgroundUrl})` }}
             className="flex justify-center items-center h-screen w-full text-white bg-cover bg-center p-10"
-            aria-labelledby="home-section-title"
+            aria-labelledby="home-title"
         >
             <div
                 role="banner"
                 className="flex flex-col items-center justify-center h-full w-full"
             >
                 <h1
-                    id="home-section-title"
+                    id="home-title"
                     className="text-4xl font-extrabold leading-tight text-center"
                 >
                     <div className="flex flex-col items-center text-center">

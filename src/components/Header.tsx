@@ -19,15 +19,15 @@ const Header: React.FC<MenuProps> = ({ items }) => {
         <header
             className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center 
                         ${isScrolled || isMenuOpen ? 'bg-neutral-800 shadow-md' : 'bg-transparent'}`}
-            aria-label="Main Navigation"
+            aria-label="Навигация"
         >
-            <nav className="flex justify-end items-center text-white w-full" role="navigation">
+            <nav className="flex justify-end items-center text-white w-full">
                 <button
                     type="button"
                     className="relative w-10 h-10 flex md:hidden justify-center items-center"
                     onClick={toggleMenu}
                     aria-expanded={isMenuOpen}
-                    aria-label="Toggle menu"
+                    aria-label="Открыть/закрыть выпадающее меню навигации"
                 >
                     <img
                         src={isMenuOpen
@@ -42,12 +42,10 @@ const Header: React.FC<MenuProps> = ({ items }) => {
                 <ul
                     className={`py-2 md:flex flex-col md:flex-row justify-center w-full 
                                ${isMenuOpen ? 'flex absolute top-16 left-0 right-0 bg-neutral-800' : 'hidden md:flex'}`}
-                    role="menubar"
                 >
                     {items.map(({ id, title }) => (
                         <li
                             key={id}
-                            role="none"
                             onClick={handleLinkClick}
                             className={`cursor-pointer py-2 px-4 hover:underline 
                                         ${activeId === id ? 'font-bold' : ''}`}
@@ -56,7 +54,6 @@ const Header: React.FC<MenuProps> = ({ items }) => {
                                 href={`#${id}`}
                                 className="text-white text-center text-lg w-full h-full block"
                                 tabIndex={0}
-                                role="menuitem"
                                 aria-current={activeId === id ? 'page' : undefined}
                             >
                                 {title}
