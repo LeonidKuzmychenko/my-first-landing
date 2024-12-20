@@ -16,8 +16,8 @@ const MotivationSection: React.FC = () => {
                                 <span>которые улучшают качество жизни</span>
                             </div>
                         </h2>
-                        <p className="text-center text-2xl">Ощути первые результаты всего за 7 дней!</p>
-                        <p className="text-center text-2xl">3 главных принципа на пути к здоровью и идеальной фигуре:</p>
+                        <p className="text-center text-2xl" tabIndex={0}>Ощути первые результаты всего за 7 дней!</p>
+                        <p className="text-center text-2xl" tabIndex={0}>3 главных принципа на пути к здоровью и идеальной фигуре:</p>
                         <ul role="list" aria-label="Мотивация получения услуг" className="flex flex-col text-center">
                             <li
                                 role="listitem"
