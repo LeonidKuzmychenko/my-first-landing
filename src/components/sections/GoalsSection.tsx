@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 interface CardProps {
     src: string;
@@ -19,9 +19,7 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
             }
         }}
     >
-        <div
-            className="w-36 aspect-square rounded-full overflow-hidden"
-        >
+        <div className="w-36 aspect-square rounded-full overflow-hidden transform transition-transform duration-200 hover:scale-110">
             <img
                 src={src}
                 loading="lazy"
@@ -29,10 +27,7 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
                 className="w-full h-full object-cover pointer-events-none"
             />
         </div>
-        <h3
-            id={`card-title-${title}`}
-            className="text-2xl font-bold text-center pointer-events-none"
-        >
+        <h3 id={`card-title-${title}`} className="text-2xl font-bold text-center pointer-events-none">
             {title}
         </h3>
         <p className="text-lg text-center pointer-events-none">
@@ -73,8 +68,7 @@ const GoalsSection: React.FC = () => {
                 Персональные тренировки — лучший выбор для вас и вашего тела
             </h2>
 
-            <div className="flex flex-wrap justify-center gap-10" role="list"
-                 aria-label="Список целей персональных тренировок">
+            <div className="flex flex-wrap justify-center gap-10" role="list" aria-label="Список целей персональных тренировок">
                 {cards.map((card, index) => (
                     <Card
                         key={index}
@@ -84,12 +78,14 @@ const GoalsSection: React.FC = () => {
                     />
                 ))}
             </div>
-            <hr className="w-full h-px bg-gray-300 border-0" aria-hidden="true"/>
-            <div className="flex justify-center">
+
+            <hr className="w-full h-px bg-gray-300 border-0" aria-hidden="true" />
+
+            <div className="flex justify-center"
+                 tabIndex={0}
+                 aria-label="Твой персональный тренер">
                 <p className="text-center max-w-[800px] text-lg">
-                    Помогу тебе достичь тела мечты: избавиться от лишнего веса, набрать мышечную массу или улучшить
-                    физическую форму. Каждая тренировка — это персональный подход и проверенные методики, которые дают
-                    реальный результат.
+                    Помогу тебе достичь тела мечты: избавиться от лишнего веса, набрать мышечную массу или улучшить физическую форму. Каждая тренировка — это персональный подход и проверенные методики, которые дают реальный результат.
                     Мои заслуги —&nbsp;
                     <a href="#achievements"
                        className="text-blue-500 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -101,13 +97,13 @@ const GoalsSection: React.FC = () => {
                     </a>.
                     Хочешь изменений? Свяжись со мной любым удобным тебе&nbsp;
                     <a href="#contacts"
-                       className="text-blue-500 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                       className="text-blue-500 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                       aria-label="Ссылка на мои контакты">
                         СПОСОБОМ
                     </a>.
                     Начни путь к сильному и здоровому телу уже сегодня!
                 </p>
             </div>
-
         </div>
     );
 };
