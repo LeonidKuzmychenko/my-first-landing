@@ -13,11 +13,11 @@ const MotivationSection: React.FC = () => {
                         <h2 id="motivation-title" className="text-4xl font-bold">
                             <div tabIndex={0} className="flex flex-col text-center" aria-label="Тренировки, которые изменят твою жизнь">
                                 <span>Тренировки,</span>
-                                <span>которые изменят твою жизнь</span>
+                                <span>которые улучшают качество жизни</span>
                             </div>
                         </h2>
-                        <p className="text-center text-2xl">7 дней и ты почувствуешь разницу</p>
-                        <p className="text-center text-2xl">3 ключа к здоровью и красоте:</p>
+                        <p className="text-center text-2xl">Ощути первые результаты всего за 7 дней!</p>
+                        <p className="text-center text-2xl">3 главных принципа на пути к здоровью и идеальной фигуре:</p>
                         <ul role="list" aria-label="Мотивация получения услуг" className="flex flex-col text-center">
                             <li
                                 role="listitem"
@@ -31,14 +31,14 @@ const MotivationSection: React.FC = () => {
                                 tabIndex={0}
                                 className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                             >
-                                * Качество
+                                * Высокое качество
                             </li>
                             <li
                                 role="listitem"
                                 tabIndex={0}
                                 className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                             >
-                                * Результат
+                                * Осязаемый результат
                             </li>
                         </ul>
                     </div>

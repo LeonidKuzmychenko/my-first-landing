@@ -68,12 +68,13 @@ const GoalsSection: React.FC = () => {
     ];
 
     return (
-        <div className="flex flex-col items-center gap-10 w-full p-5 md:p-10 bg-gray-100" aria-labelledby="goals-title">
+        <div className="flex flex-col gap-10 w-full p-5 md:p-10 bg-gray-100" aria-labelledby="goals-title">
             <h2 id="goals-title" className="text-4xl font-bold text-center">
                 Персональные тренировки — лучший выбор для вас и вашего тела
             </h2>
 
-            <div className="flex flex-wrap justify-center gap-10" role="list" aria-label="Список целей персональных тренировок">
+            <div className="flex flex-wrap justify-center gap-10" role="list"
+                 aria-label="Список целей персональных тренировок">
                 {cards.map((card, index) => (
                     <Card
                         key={index}
@@ -83,6 +84,30 @@ const GoalsSection: React.FC = () => {
                     />
                 ))}
             </div>
+            <hr className="w-full h-px bg-gray-300 border-0" aria-hidden="true"/>
+            <div className="flex justify-center">
+                <p className="text-center max-w-[800px] text-lg">
+                    Помогу тебе достичь тела мечты: избавиться от лишнего веса, набрать мышечную массу или улучшить
+                    физическую форму. Каждая тренировка — это персональный подход и проверенные методики, которые дают
+                    реальный результат.
+                    Мои заслуги —&nbsp;
+                    <a href="#achievements"
+                       className="text-blue-500 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        ПОБЕДЫ НА СПОРТИВНЫХ ТУРНИРАХ
+                    </a>&nbsp;и&nbsp;
+                    <a href="#clients"
+                       className="text-blue-500 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        УСПЕХИ МОИХ КЛИЕНТОВ
+                    </a>.
+                    Хочешь изменений? Свяжись со мной любым удобным тебе&nbsp;
+                    <a href="#contacts"
+                       className="text-blue-500 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        СПОСОБОМ
+                    </a>.
+                    Начни путь к сильному и здоровому телу уже сегодня!
+                </p>
+            </div>
+
         </div>
     );
 };

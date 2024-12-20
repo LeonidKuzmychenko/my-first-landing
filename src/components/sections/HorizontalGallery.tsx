@@ -24,11 +24,12 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, alt }) => (
 
 const HorizontalGallery: React.FC = () => {
     const images: string[] = [
-        `${process.env.PUBLIC_URL}/images/before-after-5.jpg`,
-        `${process.env.PUBLIC_URL}/images/before-after-2.jpg`,
-        `${process.env.PUBLIC_URL}/images/before-after-3.jpg`,
-        `${process.env.PUBLIC_URL}/images/before-after-4.jpg`,
-        `${process.env.PUBLIC_URL}/images/before-after-1.jpg`
+        `${process.env.PUBLIC_URL}/images/students/before_after_1.webp`,
+        `${process.env.PUBLIC_URL}/images/students/before_after_2.webp`,
+        `${process.env.PUBLIC_URL}/images/students/before_after_3.webp`,
+        `${process.env.PUBLIC_URL}/images/students/before_after_4.webp`,
+        `${process.env.PUBLIC_URL}/images/students/before_after_5.webp`,
+        `${process.env.PUBLIC_URL}/images/students/before_after_6.webp`
     ];
 
     const [activeIndex, setActiveIndex] = useState(0);

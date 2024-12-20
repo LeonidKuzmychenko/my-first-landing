@@ -3,15 +3,36 @@ import React from 'react';
 interface CardProps {
     src: string;
     title: string;
-    text: string;
+    name: string;
+    year: string;
 }
 
 const AchievementsSection: React.FC = () => {
     const cards: CardProps[] = [
-        {src: `${process.env.PUBLIC_URL}/images/achievement.webp`, title: "Кубок 2021", text: "Крутой качок"},
-        {src: `${process.env.PUBLIC_URL}/images/achievement.webp`, title: "Кубок 2022", text: "Крутой качок"},
-        {src: `${process.env.PUBLIC_URL}/images/achievement.webp`, title: "Кубок 2023", text: "Крутой качок"},
-        {src: `${process.env.PUBLIC_URL}/images/achievement.webp`, title: "Кубок 2024", text: "Крутой качок"}
+        {
+            src: `${process.env.PUBLIC_URL}/images/achievement/odesa_win.webp`,
+            title: "Лучший спортсмен",
+            name: "Чемпионат Одессы",
+            year: "2023"
+        },
+        {
+            src: `${process.env.PUBLIC_URL}/images/achievement/ukraine_champion.webp`,
+            title: "Абсолютный чемпион",
+            name: "Чемпионат Украины",
+            year: "2023"
+        },
+        {
+            src: `${process.env.PUBLIC_URL}/images/achievement/spain_champion.webp`,
+            title: "Чемпион",
+            name: "Arnold Classic Europe Madrid Spain",
+            year: "2023"
+        },
+        {
+            src: `${process.env.PUBLIC_URL}/images/achievement/achievement.webp`,
+            title: "Абсолютной чемпион",
+            name: "Europe Championship Santa Susana Spain",
+            year: "2023"
+        }
     ];
 
     return (
@@ -42,14 +63,19 @@ const AchievementsSection: React.FC = () => {
                                 src={card.src}
                                 loading="lazy"
                                 alt={`Изображение достижения ${card.title}`}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                             />
                         </div>
-                        <h3 className="text-2xl font-bold leading-snug">
+                        <h3 className="text-2xl font-bold text-center leading-snug">
                             {card.title}
                         </h3>
-                        <p className="text-lg font-normal leading-relaxed">
-                            {card.text}
+                        <p className="flex flex-col">
+                            <span className="text-lg font-normal text-center leading-relaxed">
+                                {card.name}
+                            </span>
+                            <span className="text-lg font-normal text-center leading-relaxed">
+                                {card.year}
+                            </span>
                         </p>
                         <a
                             id={`card-link-${index}`}
