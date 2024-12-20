@@ -88,16 +88,16 @@ const GoalsSection: React.FC = () => {
                     Помогу тебе достичь тела мечты: избавиться от лишнего веса, набрать мышечную массу или улучшить физическую форму. Каждая тренировка — это персональный подход и проверенные методики, которые дают реальный результат.
                     Мои заслуги —&nbsp;
                     <a href="#achievements"
-                       className="text-blue-500 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                       className="text-blue-900 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900">
                         ПОБЕДЫ НА СПОРТИВНЫХ ТУРНИРАХ
                     </a>&nbsp;и&nbsp;
                     <a href="#clients"
-                       className="text-blue-500 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                       className="text-blue-900 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900">
                         УСПЕХИ МОИХ КЛИЕНТОВ
                     </a>.
                     Хочешь изменений? Свяжись со мной любым удобным тебе&nbsp;
                     <a href="#contacts"
-                       className="text-blue-500 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                       className="text-blue-900 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
                        aria-label="Ссылка на мои контакты">
                         СПОСОБОМ
                     </a>.

@@ -3,13 +3,13 @@ import React from 'react';
 const MotivationSection: React.FC = () => {
     return (
         <div
-            className="flex p-10 md:p-0 md:h-[700px] bg-neutral-800 text-white"
+            className="flex p-5 md:p-0 md:h-[700px] bg-neutral-800 text-white"
             aria-labelledby="motivation-title"
             role="region"
         >
             <div className="flex items-center justify-center h-full w-full">
-                <div className="flex items-center h-full p-10">
-                    <div className="flex flex-col gap-10 md:gap-5">
+                <div className="flex items-center h-full">
+                    <div className="flex flex-col gap-10 md:gap-5 p-0 md:p-5">
                         <h2 id="motivation-title" className="text-4xl font-bold">
                             <div tabIndex={0} className="flex flex-col text-center" aria-label="Тренировки, которые изменят твою жизнь">
                                 <span>Тренировки,</span>
@@ -22,23 +22,26 @@ const MotivationSection: React.FC = () => {
                             <li
                                 role="listitem"
                                 tabIndex={0}
-                                className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
+                                className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 flex items-center justify-center"
                             >
-                                * Персональный подход
+                                <img src={`${process.env.PUBLIC_URL}/icons/check-mark.svg`} alt="Галочка" className="w-10 h-10 mr-1" />
+                                Персональный подход
                             </li>
                             <li
                                 role="listitem"
                                 tabIndex={0}
-                                className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
+                                className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 flex items-center justify-center"
                             >
-                                * Высокое качество
+                                <img src={`${process.env.PUBLIC_URL}/icons/check-mark.svg`} alt="Галочка" className="w-10 h-10 mr-1" />
+                                Высокое качество
                             </li>
                             <li
                                 role="listitem"
                                 tabIndex={0}
-                                className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
+                                className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 flex items-center justify-center"
                             >
-                                * Осязаемый результат
+                                <img src={`${process.env.PUBLIC_URL}/icons/check-mark.svg`} alt="Галочка" className="w-10 h-10 mr-1" />
+                                Осязаемый результат
                             </li>
                         </ul>
                     </div>
