@@ -16,11 +16,6 @@ import enGoalsLang from '../locales/en/goals.json';
 import ruGoalsLang from '../locales/ru/goals.json';
 import ukGoalsLang from '../locales/uk/goals.json';
 
-//seo
-import enSeoLang from '../locales/en/seo.json';
-import ruSeoLang from '../locales/ru/seo.json';
-import ukSeoLang from '../locales/uk/seo.json';
-
 //menu
 import enMenuLang from '../locales/en/menu.json';
 import ruMenuLang from '../locales/ru/menu.json';
@@ -66,7 +61,6 @@ i18n
                 app: enAppLang,
                 home: enHomeLang,
                 goals: enGoalsLang,
-                seo: enSeoLang,
                 menu: enMenuLang,
                 motivation: enMotivationLang,
                 achievements: enAchievementsLang,
@@ -79,7 +73,6 @@ i18n
                 app: ruAppLang,
                 home: ruHomeLang,
                 goals: ruGoalsLang,
-                seo: ruSeoLang,
                 menu: ruMenuLang,
                 motivation: ruMotivationLang,
                 achievements: ruAchievementsLang,
@@ -92,7 +85,6 @@ i18n
                 app: ukAppLang,
                 home: ukHomeLang,
                 goals: ukGoalsLang,
-                seo: ukSeoLang,
                 menu: ukMenuLang,
                 motivation: ukMotivationLang,
                 achievements: ukAchievementsLang,
@@ -102,9 +94,9 @@ i18n
                 notfound: ukNotFoundLang
             }
         },
-        fallbackLng: "en", // язык по умолчанию
+        fallbackLng: "uk", // язык по умолчанию
         supportedLngs: ["en", "ru", "uk"], // поддерживаемые языки
-        ns: ['app', 'home', 'goals', 'seo', 'menu', 'motivation', 'achievements', 'clients', 'contacts', 'footer', 'notfound'],
+        ns: ['app', 'home', 'goals', 'menu', 'motivation', 'achievements', 'clients', 'contacts', 'footer', 'notfound'],
         defaultNS: 'app', // Пространство имен по умолчанию
         interpolation: {
             escapeValue: false, // отключает экранирование

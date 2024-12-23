@@ -10,6 +10,8 @@ import NotFoundPage from "./components/NotFoundPage";
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 import HorizontalGallery from "./components/sections/HorizontalGallery";
 import {useTranslation} from "react-i18next";
+import BASE_URL from "./utils/constants";
+import Fonts from "./components/Fonts";
 
 export interface SectionData {
     id: string;
@@ -25,6 +27,7 @@ const App: React.FC = () => {
         i18n.changeLanguage('uk')
         document.title = t("app-title");
         console.log(i18n.language);
+        console.log(BASE_URL);
     }, []);
 
     const sections: SectionData[] = [
@@ -38,35 +41,7 @@ const App: React.FC = () => {
 
     return (
         <>
-            <style >{`
-            @font-face {
-                font-family: 'Roboto';
-                src: url('${process.env.PUBLIC_URL}/fonts/Roboto-Regular.ttf') format('ttf');
-                font-weight: 400;
-                font-style: normal;
-            }
-
-            @font-face {
-                font-family: 'Roboto';
-                src: url('${process.env.PUBLIC_URL}/fonts/Roboto-Medium.ttf') format('ttf');
-                font-weight: 500;
-                font-style: normal;
-            }
-
-            @font-face {
-                font-family: 'Roboto';
-                src: url('${process.env.PUBLIC_URL}/Roboto-Bold.ttf') format('ttf');
-                font-weight: 700;
-                font-style: normal;
-            }
-
-            @font-face {
-                font-family: 'Roboto';
-                src: url('${process.env.PUBLIC_URL}/Roboto-Black.ttf') format('ttf');
-                font-weight: 900;
-                font-style: normal;
-            }
-            `}</style>
+            <Fonts/>
             <Router basename="/my-first-landing">
                 <div className="flex flex-col min-h-screen" role="application" aria-labelledby="home-title">
                     <Routes>
