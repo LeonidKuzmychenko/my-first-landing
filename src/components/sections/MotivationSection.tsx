@@ -1,6 +1,9 @@
 import React from 'react';
+import {useTranslation} from "react-i18next";
 
 const MotivationSection: React.FC = () => {
+    const { t, i18n } = useTranslation('motivation');
+
     return (
         <div
             className="flex p-5 md:p-0 md:h-[700px] bg-neutral-800 text-white"
@@ -11,13 +14,13 @@ const MotivationSection: React.FC = () => {
                 <div className="flex items-center h-full">
                     <div className="flex flex-col gap-10 md:gap-5 p-0 md:p-5">
                         <h2 id="motivation-title" className="text-4xl font-bold">
-                            <div tabIndex={0} className="flex flex-col text-center" aria-label="Тренировки, которые изменят твою жизнь">
-                                <span>Тренировки,</span>
-                                <span>которые улучшают качество жизни</span>
+                            <div tabIndex={0} className="flex flex-col text-center">
+                                <span>{t("title-1")}</span>
+                                <span>{t("title-2")}</span>
                             </div>
                         </h2>
-                        <p className="text-center text-2xl" tabIndex={0}>Ощути первые результаты всего за 7 дней!</p>
-                        <p className="text-center text-2xl" tabIndex={0}>3 главных принципа на пути к здоровью и идеальной фигуре:</p>
+                        <p className="text-center text-2xl" tabIndex={0}>{t("text-1")}</p>
+                        <p className="text-center text-2xl" tabIndex={0}>{t("text-2")}</p>
                         <ul role="list" aria-label="Мотивация получения услуг" className="flex flex-col text-center">
                             <li
                                 role="listitem"
@@ -25,7 +28,7 @@ const MotivationSection: React.FC = () => {
                                 className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 flex items-center justify-center"
                             >
                                 <img src={`${process.env.PUBLIC_URL}/icons/check-mark.svg`} alt="Галочка" className="w-10 h-10 mr-1" />
-                                Персональный подход
+                                {t("text-3")}
                             </li>
                             <li
                                 role="listitem"
@@ -33,7 +36,7 @@ const MotivationSection: React.FC = () => {
                                 className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 flex items-center justify-center"
                             >
                                 <img src={`${process.env.PUBLIC_URL}/icons/check-mark.svg`} alt="Галочка" className="w-10 h-10 mr-1" />
-                                Высокое качество
+                                {t("text-4")}
                             </li>
                             <li
                                 role="listitem"
@@ -41,7 +44,7 @@ const MotivationSection: React.FC = () => {
                                 className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 flex items-center justify-center"
                             >
                                 <img src={`${process.env.PUBLIC_URL}/icons/check-mark.svg`} alt="Галочка" className="w-10 h-10 mr-1" />
-                                Осязаемый результат
+                                {t("text-5")}
                             </li>
                         </ul>
                     </div>

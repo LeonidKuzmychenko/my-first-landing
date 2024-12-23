@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import {useTranslation} from "react-i18next";
 
 interface GalleryItemProps {
     src: string;
@@ -23,6 +24,8 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, alt }) => (
 );
 
 const HorizontalGallery: React.FC = () => {
+    const { t, i18n } = useTranslation('clients');
+
     const images: string[] = [
         `${process.env.PUBLIC_URL}/images/students/before_after_1.webp`,
         `${process.env.PUBLIC_URL}/images/students/before_after_2.webp`,
@@ -110,7 +113,7 @@ const HorizontalGallery: React.FC = () => {
                 id="clients-title"
                 className="text-center text-4xl font-bold"
             >
-                Спортивные достижения клиентов
+                {t("title")}
             </h2>
 
             <div

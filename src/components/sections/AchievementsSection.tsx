@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from "react-i18next";
 
 interface CardProps {
     src: string;
@@ -8,37 +9,39 @@ interface CardProps {
 }
 
 const AchievementsSection: React.FC = () => {
+    const { t, i18n } = useTranslation('achievements');
+
     const cards: CardProps[] = [
         {
             src: `${process.env.PUBLIC_URL}/images/achievement/odesa_win.webp`,
-            title: "Лучший спортсмен",
-            name: "Чемпионат Одессы",
-            year: "2023"
+            title: t("card-1-title"),
+            name: t("card-1-name"),
+            year: t("card-1-year"),
         },
         {
             src: `${process.env.PUBLIC_URL}/images/achievement/ukraine_champion.webp`,
-            title: "Абсолютный чемпион",
-            name: "Чемпионат Украины",
-            year: "2023"
+            title: t("card-2-title"),
+            name: t("card-2-name"),
+            year: t("card-2-year"),
         },
         {
             src: `${process.env.PUBLIC_URL}/images/achievement/spain_champion.webp`,
-            title: "Чемпион",
-            name: "Arnold Classic Europe Madrid Spain",
-            year: "2023"
+            title: t("card-3-title"),
+            name: t("card-3-name"),
+            year: t("card-3-year"),
         },
         {
             src: `${process.env.PUBLIC_URL}/images/achievement/achievement.webp`,
-            title: "Абсолютной чемпион",
-            name: "Europe Championship Santa Susana Spain",
-            year: "2023"
+            title: t("card-4-title"),
+            name: t("card-4-name"),
+            year: t("card-4-year"),
         }
     ];
 
     return (
         <div className="flex flex-col gap-10 w-full p-5 md:p-10 bg-gray-100" aria-labelledby="achievements-title">
             <h2 id="achievements-title" className="text-center text-4xl font-bold leading-tight">
-                Спортивные достижения
+                {t("title")}
             </h2>
 
             <div className="flex flex-wrap justify-center gap-10" role="list" aria-label="Список достижений">
@@ -77,13 +80,6 @@ const AchievementsSection: React.FC = () => {
                                 {card.year}
                             </span>
                         </p>
-                        <a
-                            id={`card-link-${index}`}
-                            href={`#achievement-${index}`}
-                            className="sr-only"
-                        >
-                            Перейти к достижению {card.title}
-                        </a>
                     </div>
                 ))}
             </div>

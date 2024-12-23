@@ -1,6 +1,9 @@
 import React from 'react';
+import {useTranslation} from "react-i18next";
 
 const HomeSection: React.FC = () => {
+    const { t, i18n } = useTranslation('home');
+
     const backgroundUrl = `${process.env.PUBLIC_URL}/images/background.webp`;
 
     return (
@@ -23,14 +26,14 @@ const HomeSection: React.FC = () => {
                             tabIndex={0}
                             aria-label="Профессия: Персональный тренер"
                         >
-                            Персональный тренер
+                            {t("title-job")}
                         </p>
                         <p
                             className="text-5xl font-bold leading-tight"
                             tabIndex={0}
                             aria-label="Имя тренера: Евгений Московцев"
                         >
-                            Евгений Московцев
+                            {t("title-name")}
                         </p>
                     </div>
                 </h1>
@@ -40,7 +43,7 @@ const HomeSection: React.FC = () => {
                     className="mt-10 text-xl bg-primary text-white py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 hover:bg-neutral-700 transition-colors"
                     aria-label="Перейти к целям тренировки"
                 >
-                    Узнать больше
+                    {t("button-next")}
                 </a>
             </div>
         </div>

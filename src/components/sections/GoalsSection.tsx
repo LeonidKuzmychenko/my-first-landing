@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
+import {useTranslation} from "react-i18next";
 
 interface CardProps {
     src: string;
@@ -44,28 +45,30 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
 );
 
 const GoalsSection: React.FC = () => {
+    const { t, i18n } = useTranslation('goals');
+
     const cards: CardProps[] = [
         {
             src: `${process.env.PUBLIC_URL}/icons/figure.svg`,
-            title: "Эстетическая форма",
-            text: "Большой опыт работы фитнес инструктором позволяет мне эффективно решать вопросы с лишним весом"
+            title: t("card-1-title"),
+            text: t("card-1-text"),
         },
         {
             src: `${process.env.PUBLIC_URL}/icons/muscle.svg`,
-            title: "Набор массы тела",
-            text: "Как правильно набрать мышечную массу без вреда для суставов и связок. Современные методики тренировок"
+            title: t("card-2-title"),
+            text: t("card-2-text"),
         },
         {
             src: `${process.env.PUBLIC_URL}/icons/diet.svg`,
-            title: "Составление питания",
-            text: "Правильное питание - это 70% результата. Программы питания и четкий план, когда, сколько и что кушать"
+            title: t("card-3-title"),
+            text: t("card-3-text"),
         }
     ];
 
     return (
         <div className="flex flex-col gap-10 w-full p-5 md:p-10 bg-gray-100" aria-labelledby="goals-title">
             <h2 id="goals-title" className="text-4xl font-bold text-center">
-                Персональные тренировки — лучший выбор для вас и вашего тела
+                {t("title")}
             </h2>
 
             <div className="flex flex-wrap justify-center gap-10" role="list" aria-label="Список целей персональных тренировок">
@@ -84,24 +87,24 @@ const GoalsSection: React.FC = () => {
             <div className="flex justify-center"
                  tabIndex={0}
                  aria-label="Твой персональный тренер">
-                <p className="text-center max-w-[800px] text-lg">
-                    Помогу тебе достичь тела мечты: избавиться от лишнего веса, набрать мышечную массу или улучшить физическую форму. Каждая тренировка — это персональный подход и проверенные методики, которые дают реальный результат.
-                    Мои заслуги —&nbsp;
+                <p className="text-justify max-w-[800px] text-lg">
+                    {t("description-1")}
                     <a href="#achievements"
                        className="text-blue-900 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900">
-                        ПОБЕДЫ НА СПОРТИВНЫХ ТУРНИРАХ
-                    </a>&nbsp;и&nbsp;
+                        {t("description-2")}
+                    </a>
+                    {t("description-3")}
                     <a href="#clients"
                        className="text-blue-900 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900">
-                        УСПЕХИ МОИХ КЛИЕНТОВ
-                    </a>.
-                    Хочешь изменений? Свяжись со мной любым удобным тебе&nbsp;
+                        {t("description-4")}
+                    </a>
+                    {t("description-5")}
                     <a href="#contacts"
                        className="text-blue-900 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
                        aria-label="Ссылка на мои контакты">
-                        СПОСОБОМ
-                    </a>.
-                    Начни путь к сильному и здоровому телу уже сегодня!
+                        {t("description-6")}
+                    </a>
+                    {t("description-7")}
                 </p>
             </div>
         </div>

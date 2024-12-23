@@ -1,6 +1,8 @@
 import React from 'react';
+import {useTranslation} from "react-i18next";
 
 const ContactsSection: React.FC = () => {
+    const { t, i18n } = useTranslation('contacts');
     return (
         <div
             className="flex flex-col w-full h-[calc(100vh-170px-64px)]"
@@ -10,7 +12,7 @@ const ContactsSection: React.FC = () => {
                 id="contacts-title"
                 className="sr-only"
             >
-                Местоположение
+                {t("title")}
             </h2>
 
             <iframe
@@ -20,7 +22,7 @@ const ContactsSection: React.FC = () => {
                 referrerPolicy="no-referrer-when-downgrade"
                 sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-modals"
                 allowFullScreen
-                title="Google Maps - местоположение Спорт Студио 55"
+                title={t("map-title")}
                 role="application"
                 tabIndex={0}
             ></iframe>

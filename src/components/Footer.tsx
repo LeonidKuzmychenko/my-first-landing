@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from "react-i18next";
 
 interface SocialCard {
     src: string;
@@ -7,6 +8,7 @@ interface SocialCard {
 }
 
 const Footer: React.FC = () => {
+    const {t, i18n} = useTranslation('footer');
 
     const cards: SocialCard[] = [
         {
@@ -25,38 +27,39 @@ const Footer: React.FC = () => {
         <footer role="contentinfo" aria-labelledby="footer-title">
             <div className="flex flex-col gap-4 text-white bg-neutral-800 p-5 pb-1 md:p-10 md:pb-1 min-h-[170px]">
                 <h2 id="footer-title" className="sr-only">
-                    Информация о контактах и социальных сетях
+                    {t("title")}
                 </h2>
 
                 <div className="flex flex-col md:flex-row justify-between gap-4 flex-wrap">
                     <div className="flex flex-row md:flex-col gap-2 flex-1 text-center">
-                        <h3 tabIndex={0} aria-label="Адрес фитнес-клуба"
+                        <h3 tabIndex={0}
                             className="flex justify-center items-center text-xl font-bold leading-snug">
-                            Адрес<span className="block md:hidden">:</span>
+                            {t("address")}<span className="block md:hidden">:</span>
                         </h3>
-                        <span tabIndex={0} aria-label="Фитнес-клуб Sport Studio 55" className="flex justify-center items-center mt-1 text-base font-normal leading-relaxed">
-                            г. Одесса, с. Лиманка, ул. Жемчужная 1, Sport Studio 55
+                        <span tabIndex={0}
+                              className="flex justify-center items-center mt-1 text-base font-normal leading-relaxed">
+                            {t("address-value")}
                         </span>
                     </div>
                     <div className="flex flex-row md:flex-col gap-2 flex-1 text-center">
-                        <h3 tabIndex={0} aria-label="Телефон для связи" className="flex justify-center items-center text-xl font-bold leading-snug">
-                            Телефон<span className="block md:hidden">:</span>
+                        <h3 tabIndex={0}
+                            className="flex justify-center items-center text-xl font-bold leading-snug">
+                            {t("phone")}<span className="block md:hidden">:</span>
                         </h3>
                         <a
-                            href="tel:+380671322223"
+                            href={"tel:" + `${t("phone-value")}`}
                             className="flex justify-center items-center mt-1 leading-relaxed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
-                            aria-label="Позвонить по номеру +380671322223"
+                            aria-label={`Позвонить по номеру ${t("phone-value")}`}
                         >
-                            +380671322223
+                            {t("phone-value")}
                         </a>
                     </div>
                     <div className="flex flex-row md:flex-col gap-2 flex-1 text-center">
                         <h3
                             tabIndex={0}
-                            aria-label="Социальные сети"
                             className="flex justify-center items-center text-xl font-bold leading-snug"
                         >
-                            Социальные сети<span className="block md:hidden">:</span>
+                            {t("social")}<span className="block md:hidden">:</span>
                         </h3>
                         <div className="flex justify-center gap-2">
                             {cards.map((card, index) => (
@@ -85,7 +88,7 @@ const Footer: React.FC = () => {
                         aria-label="Авторские права"
                         className="text-sm font-medium leading-snug"
                     >
-                        Copyright © 2024. Created by Leonid Kuzmychenko
+                        {t("creator")}
                     </p>
                     <a
                         tabIndex={0}
@@ -95,11 +98,11 @@ const Footer: React.FC = () => {
                         target="_blank"
                         className="text-sm font-medium leading-snug cursor-pointer relative group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
                     >
-                        Политика конфиденциальности
+                        {t("policy")}
                         <div
                             className="absolute bottom-full left-0 mb-2 px-3 py-2 text-xs text-white bg-neutral-800 rounded-md hidden group-hover:block group-focus:block whitespace-normal w-full"
                         >
-                            Этот веб-сайт использует технологии с открытым исходным кодом, предоставленные по лицензии Apache License 2.0.
+                            {t("policy-up")}
                         </div>
                     </a>
 

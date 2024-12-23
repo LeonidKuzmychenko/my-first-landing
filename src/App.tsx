@@ -9,6 +9,7 @@ import GoalsSection from "./components/sections/GoalsSection";
 import NotFoundPage from "./components/NotFoundPage";
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 import HorizontalGallery from "./components/sections/HorizontalGallery";
+import {useTranslation} from "react-i18next";
 
 export interface SectionData {
     id: string;
@@ -18,17 +19,21 @@ export interface SectionData {
 
 const App: React.FC = () => {
 
+    const { t, i18n } = useTranslation('app');
+
     useEffect(() => {
-        document.title = "Персональный тренер Евгений Московцев";
+        // i18n.changeLanguage('ru')
+        document.title = t("app-title");
+        console.log(i18n.language);
     }, []);
 
     const sections: SectionData[] = [
-        {id: 'home', title: 'Главная', content: <HomeSection/>},
-        {id: 'goals', title: 'Цели', content: <GoalsSection/>},
-        {id: 'motivation', title: 'Мотивация', content: <MotivationSection/>},
-        {id: 'achievements', title: 'Достижения', content: <AchievementsSection/>},
-        {id: 'clients', title: 'Клиенты', content: <HorizontalGallery/>},
-        {id: 'contacts', title: 'Контакты', content: <ContactsSection/>}
+        {id: 'home', title: t("home-title"), content: <HomeSection/>},
+        {id: 'goals', title: t("goals-title"), content: <GoalsSection/>},
+        {id: 'motivation', title: t("motivation-title"), content: <MotivationSection/>},
+        {id: 'achievements', title: t("achievements-title"), content: <AchievementsSection/>},
+        {id: 'clients', title: t("clients-title"), content: <HorizontalGallery/>},
+        {id: 'contacts', title: t("contacts-title"), content: <ContactsSection/>}
     ];
 
     return (
