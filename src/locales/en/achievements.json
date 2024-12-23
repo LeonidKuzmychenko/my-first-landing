@@ -1,0 +1,23 @@
+{
+  "title": "Sports Achievements",
+
+  "achievements-list": "List of Achievements",
+  "achievement": "Achievement",
+  "achievement-img": "Achievement Image",
+
+  "card-1-title": "Best Athlete",
+  "card-1-name": "Odessa Championship",
+  "card-1-year": "2023",
+
+  "card-2-title": "Absolute Champion",
+  "card-2-name": "Ukraine Championship",
+  "card-2-year": "2023",
+
+  "card-3-title": "Champion",
+  "card-3-name": "Arnold Classic Europe Madrid Spain",
+  "card-3-year": "2023",
+
+  "card-4-title": "Absolute Champion",
+  "card-4-name": "Europe Championship Santa Susana Spain",
+  "card-4-year": "2023"
+}

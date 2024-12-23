@@ -25,7 +25,7 @@ const ContactsSection: React.FC = () => {
                 title={t("map-title")}
                 role="application"
                 tabIndex={0}
-            ></iframe>
+            />
         </div>
     );
 };

@@ -12,49 +12,49 @@ import ruHomeLang from '../locales/ru/home.json';
 import ukHomeLang from '../locales/uk/home.json';
 
 //goals
-import enGoalsLang from '../locales/ru/goals.json';
+import enGoalsLang from '../locales/en/goals.json';
 import ruGoalsLang from '../locales/ru/goals.json';
-import ukGoalsLang from '../locales/ru/goals.json';
+import ukGoalsLang from '../locales/uk/goals.json';
 
 //seo
-import enSeoLang from '../locales/ru/seo.json';
+import enSeoLang from '../locales/en/seo.json';
 import ruSeoLang from '../locales/ru/seo.json';
-import ukSeoLang from '../locales/ru/seo.json';
+import ukSeoLang from '../locales/uk/seo.json';
 
 //menu
-import enMenuLang from '../locales/ru/menu.json';
+import enMenuLang from '../locales/en/menu.json';
 import ruMenuLang from '../locales/ru/menu.json';
-import ukMenuLang from '../locales/ru/menu.json';
+import ukMenuLang from '../locales/uk/menu.json';
 
 //motivation
-import enMotivationLang from '../locales/ru/motivation.json';
+import enMotivationLang from '../locales/en/motivation.json';
 import ruMotivationLang from '../locales/ru/motivation.json';
-import ukMotivationLang from '../locales/ru/motivation.json';
+import ukMotivationLang from '../locales/uk/motivation.json';
 
 //achievements
-import enAchievementsLang from '../locales/ru/achievements.json';
+import enAchievementsLang from '../locales/en/achievements.json';
 import ruAchievementsLang from '../locales/ru/achievements.json';
-import ukAchievementsLang from '../locales/ru/achievements.json';
+import ukAchievementsLang from '../locales/uk/achievements.json';
 
 //clients
-import enClientsLang from '../locales/ru/clients.json';
+import enClientsLang from '../locales/en/clients.json';
 import ruClientsLang from '../locales/ru/clients.json';
-import ukClientsLang from '../locales/ru/clients.json';
+import ukClientsLang from '../locales/uk/clients.json';
 
 //contacts
-import enContactsLang from '../locales/ru/contacts.json';
+import enContactsLang from '../locales/en/contacts.json';
 import ruContactsLang from '../locales/ru/contacts.json';
-import ukContactsLang from '../locales/ru/contacts.json';
+import ukContactsLang from '../locales/uk/contacts.json';
 
 //footer
-import enFooterLang from '../locales/ru/footer.json';
+import enFooterLang from '../locales/en/footer.json';
 import ruFooterLang from '../locales/ru/footer.json';
-import ukFooterLang from '../locales/ru/footer.json';
+import ukFooterLang from '../locales/uk/footer.json';
 
 //notfound
-import enNotFoundLang from '../locales/ru/notfound.json';
+import enNotFoundLang from '../locales/en/notfound.json';
 import ruNotFoundLang from '../locales/ru/notfound.json';
-import ukNotFoundLang from '../locales/ru/notfound.json';
+import ukNotFoundLang from '../locales/uk/notfound.json';
 
 
 i18n
