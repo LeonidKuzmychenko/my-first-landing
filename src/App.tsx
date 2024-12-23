@@ -22,7 +22,7 @@ const App: React.FC = () => {
     const { t, i18n } = useTranslation('app');
 
     useEffect(() => {
-        i18n.changeLanguage('en')
+        i18n.changeLanguage('uk')
         document.title = t("app-title");
         console.log(i18n.language);
     }, []);

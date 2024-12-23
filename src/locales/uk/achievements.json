@@ -1,23 +1,23 @@
 {
-  "title": "Спортивные достижения",
+  "title": "Спортивні досягнення",
 
-  "achievements-list": "Список достижений",
-  "achievement": "Достижение",
-  "achievement-img": "Изображение достижения",
+  "achievements-list": "Список досягнень",
+  "achievement": "Досягнення",
+  "achievement-img": "Зображення досягнення",
 
-  "card-1-title": "Лучший спортсмен",
-  "card-1-name": "Чемпионат Одессы",
+  "card-1-title": "Найкращий спортсмен",
+  "card-1-name": "Чемпіонат Одеси",
   "card-1-year": "2023",
 
-  "card-2-title": "Абсолютный чемпион",
-  "card-2-name": "Чемпионат Украины",
+  "card-2-title": "Абсолютний чемпіон",
+  "card-2-name": "Чемпіонат України",
   "card-2-year": "2023",
 
-  "card-3-title": "Чемпион",
+  "card-3-title": "Чемпіон",
   "card-3-name": "Arnold Classic Europe Madrid Spain",
   "card-3-year": "2023",
 
-  "card-4-title": "Абсолютной чемпион",
+  "card-4-title": "Абсолютний чемпіон",
   "card-4-name": "Europe Championship Santa Susana Spain",
   "card-4-year": "2023"
 }
