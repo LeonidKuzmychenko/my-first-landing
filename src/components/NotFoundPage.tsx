@@ -1,6 +1,9 @@
 import React, {useEffect} from 'react';
+import {useTranslation} from "react-i18next";
 
 const NotFoundPage: React.FC = () => {
+    const {t, i18n} = useTranslation('notfound');
+
     useEffect(() => {
         document.title = "404 - Страница не найдена";
         window.history.replaceState({}, '', '/my-first-landing/not-found');
@@ -16,24 +19,20 @@ const NotFoundPage: React.FC = () => {
                 id="not-found-title"
                 className="text-4xl font-extrabold leading-tight"
             >
-                404 - Страница не найдена
+                {t("title")}
             </h1>
             <p
                 className="text-gray-600 text-base leading-relaxed"
                 tabIndex={0}
-                aria-label="К сожалению, запрашиваемая вами страница не существует. Возможно, вы ввели неправильный адрес или страница была удалена."
             >
-                К сожалению, запрашиваемая вами страница не существует. Возможно, вы ввели неправильный адрес или
-                страница
-                была
-                удалена.
+                {t("text")}
             </p>
             <a
                 href="/my-first-landing/"
                 className="text-neutral-600 text-sm font-medium underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 hover:no-underline"
-                aria-label="Вернуться на главную страницу"
+                tabIndex={0}
             >
-                Вернуться на главную
+                {t("button-back")}
             </a>
         </div>
     );

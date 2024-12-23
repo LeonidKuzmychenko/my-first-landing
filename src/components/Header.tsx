@@ -1,11 +1,14 @@
 import React, { useState, useCallback } from 'react';
 import { MenuItem, useActiveSection, useResponsiveMenu } from "../services/MenuService";
+import {useTranslation} from "react-i18next";
 
 interface MenuProps {
     items: MenuItem[];
 }
 
 const Header: React.FC<MenuProps> = ({ items }) => {
+    const {t, i18n} = useTranslation('menu');
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { isScrolled, activeId } = useActiveSection(items);
 
@@ -19,7 +22,7 @@ const Header: React.FC<MenuProps> = ({ items }) => {
         <header
             className={`fixed top-0 w-full h-16 flex z-50 px-10 justify-center items-center 
                         ${isScrolled || isMenuOpen ? 'bg-neutral-800 shadow-md' : 'bg-transparent'}`}
-            aria-label="Навигация"
+            aria-label={t("navigation")}
         >
             <nav className="flex justify-end items-center text-white w-full">
                 <button
@@ -27,14 +30,14 @@ const Header: React.FC<MenuProps> = ({ items }) => {
                     className="relative w-10 h-10 flex md:hidden justify-center items-center"
                     onClick={toggleMenu}
                     aria-expanded={isMenuOpen}
-                    aria-label="Открыть/закрыть выпадающее меню навигации"
+                    aria-label={t("close-open-label")}
                 >
                     <img
                         src={isMenuOpen
                             ? `${process.env.PUBLIC_URL}/icons/close-btn.svg`
                             : `${process.env.PUBLIC_URL}/icons/menu-btn.svg`}
                         loading="lazy"
-                        alt={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+                        alt={isMenuOpen ? t("close-label") : t("Открыть меню")}
                         className="w-full h-full object-contain"
                     />
                 </button>

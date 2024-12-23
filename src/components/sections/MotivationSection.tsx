@@ -21,7 +21,7 @@ const MotivationSection: React.FC = () => {
                         </h2>
                         <p className="text-center text-2xl" tabIndex={0}>{t("text-1")}</p>
                         <p className="text-center text-2xl" tabIndex={0}>{t("text-2")}</p>
-                        <ul role="list" aria-label="Мотивация получения услуг" className="flex flex-col text-center">
+                        <ul role="list" className="flex flex-col text-center">
                             <li
                                 role="listitem"
                                 tabIndex={0}
@@ -54,7 +54,7 @@ const MotivationSection: React.FC = () => {
                         src={`${process.env.PUBLIC_URL}/images/eugen_without_background.webp`}
                         loading="lazy"
                         className="h-full w-full object-cover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600"
-                        alt="Изображение, отображающее уважение и признание"
+                        alt={`${t("img-alt")}`}
                     />
                 </div>
             </div>

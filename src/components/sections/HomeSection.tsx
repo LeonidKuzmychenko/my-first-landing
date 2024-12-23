@@ -24,14 +24,12 @@ const HomeSection: React.FC = () => {
                         <p
                             className="text-4xl font-bold leading-snug"
                             tabIndex={0}
-                            aria-label="Профессия: Персональный тренер"
                         >
                             {t("title-job")}
                         </p>
                         <p
                             className="text-5xl font-bold leading-tight"
                             tabIndex={0}
-                            aria-label="Имя тренера: Евгений Московцев"
                         >
                             {t("title-name")}
                         </p>
@@ -41,7 +39,6 @@ const HomeSection: React.FC = () => {
                 <a
                     href="#goals"
                     className="mt-10 text-xl bg-primary text-white py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 hover:bg-neutral-700 transition-colors"
-                    aria-label="Перейти к целям тренировки"
                 >
                     {t("button-next")}
                 </a>

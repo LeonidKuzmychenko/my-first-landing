@@ -44,14 +44,14 @@ const AchievementsSection: React.FC = () => {
                 {t("title")}
             </h2>
 
-            <div className="flex flex-wrap justify-center gap-10" role="list" aria-label="Список достижений">
+            <div className="flex flex-wrap justify-center gap-10" role="list" aria-label={`${t("achievements-list")}`}>
                 {cards.map((card, index) => (
                     <div
                         key={index}
                         className="flex flex-col gap-4 items-center w-72"
                         role="listitem"
                         tabIndex={0}
-                        aria-label={`Достижение ${card.title}`}
+                        aria-label={`${t("achievement")} ${card.title}`}
                         onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
                                 const link = document.getElementById(`card-link-${index}`);
@@ -65,7 +65,7 @@ const AchievementsSection: React.FC = () => {
                             <img
                                 src={card.src}
                                 loading="lazy"
-                                alt={`Изображение достижения ${card.title}`}
+                                alt={`${t("achievement-img")} ${card.title}`}
                                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                             />
                         </div>

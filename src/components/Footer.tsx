@@ -85,14 +85,13 @@ const Footer: React.FC = () => {
                 <div className="flex justify-center items-end flex-1 text-center gap-5">
                     <p
                         tabIndex={0}
-                        aria-label="Авторские права"
+                        aria-label={`${t("creator-label")}`}
                         className="text-sm font-medium leading-snug"
                     >
                         {t("creator")}
                     </p>
                     <a
                         tabIndex={0}
-                        aria-label="Политика конфиденциальности"
                         href="https://www.apache.org/licenses/LICENSE-2.0"
                         rel="noopener noreferrer"
                         target="_blank"

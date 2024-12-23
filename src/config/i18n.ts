@@ -51,6 +51,11 @@ import enFooterLang from '../locales/ru/footer.json';
 import ruFooterLang from '../locales/ru/footer.json';
 import ukFooterLang from '../locales/ru/footer.json';
 
+//notfound
+import enNotFoundLang from '../locales/ru/notfound.json';
+import ruNotFoundLang from '../locales/ru/notfound.json';
+import ukNotFoundLang from '../locales/ru/notfound.json';
+
 
 i18n
     .use(LanguageDetector)
@@ -67,7 +72,8 @@ i18n
                 achievements: enAchievementsLang,
                 clients: enClientsLang,
                 contacts: enContactsLang,
-                footer: enFooterLang
+                footer: enFooterLang,
+                notfound: enNotFoundLang
             },
             ru: {
                 app: ruAppLang,
@@ -79,7 +85,8 @@ i18n
                 achievements: ruAchievementsLang,
                 clients: ruClientsLang,
                 contacts: ruContactsLang,
-                footer: ruFooterLang
+                footer: ruFooterLang,
+                notfound: ruNotFoundLang
             },
             uk: {
                 app: ukAppLang,
@@ -91,12 +98,13 @@ i18n
                 achievements: ukAchievementsLang,
                 clients: ukClientsLang,
                 contacts: ukContactsLang,
-                footer: ukFooterLang
+                footer: ukFooterLang,
+                notfound: ukNotFoundLang
             }
         },
         fallbackLng: "en", // язык по умолчанию
         supportedLngs: ["en", "ru", "uk"], // поддерживаемые языки
-        ns: ['app', 'home', 'goals', 'seo', 'menu', 'motivation', 'achievements', 'clients', 'contacts', 'footer'],
+        ns: ['app', 'home', 'goals', 'seo', 'menu', 'motivation', 'achievements', 'clients', 'contacts', 'footer', 'notfound'],
         defaultNS: 'app', // Пространство имен по умолчанию
         interpolation: {
             escapeValue: false, // отключает экранирование

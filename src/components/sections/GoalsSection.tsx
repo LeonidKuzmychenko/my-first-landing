@@ -7,8 +7,10 @@ interface CardProps {
     text: string;
 }
 
-const Card: React.FC<CardProps> = ({ src, title, text }) => (
-    <div
+const Card: React.FC<CardProps> = ({src, title, text}) => {
+    const {t, i18n} = useTranslation('goals');
+
+    return <div
         className="flex flex-col items-center gap-5 w-72 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-600"
         aria-labelledby={`card-title-${title}`}
         tabIndex={0}
@@ -20,11 +22,12 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
             }
         }}
     >
-        <div className="w-36 aspect-square rounded-full overflow-hidden transform transition-transform duration-200 hover:scale-110">
+        <div
+            className="w-36 aspect-square rounded-full overflow-hidden transform transition-transform duration-200 hover:scale-110">
             <img
                 src={src}
                 loading="lazy"
-                alt={`Изображение для цели: ${title}`}
+                alt={`${t("goal-img")} ${title}`}
                 className="w-full h-full object-cover pointer-events-none"
             />
         </div>
@@ -42,10 +45,11 @@ const Card: React.FC<CardProps> = ({ src, title, text }) => (
             Подробнее о цели: {title}
         </a>
     </div>
-);
+}
+
 
 const GoalsSection: React.FC = () => {
-    const { t, i18n } = useTranslation('goals');
+    const {t, i18n} = useTranslation('goals');
 
     const cards: CardProps[] = [
         {
@@ -71,7 +75,8 @@ const GoalsSection: React.FC = () => {
                 {t("title")}
             </h2>
 
-            <div className="flex flex-wrap justify-center gap-10" role="list" aria-label="Список целей персональных тренировок">
+            <div className="flex flex-wrap justify-center gap-10" role="list"
+                 aria-label={`${t("goal-list")}`}>
                 {cards.map((card, index) => (
                     <Card
                         key={index}
@@ -82,11 +87,11 @@ const GoalsSection: React.FC = () => {
                 ))}
             </div>
 
-            <hr className="w-full h-px bg-gray-300 border-0" aria-hidden="true" />
+            <hr className="w-full h-px bg-gray-300 border-0" aria-hidden="true"/>
 
             <div className="flex justify-center"
                  tabIndex={0}
-                 aria-label="Твой персональный тренер">
+                 aria-label={`${t("trainer")}`}>
                 <p className="text-justify max-w-[800px] text-lg">
                     {t("description-1")}
                     <a href="#achievements"
@@ -100,8 +105,7 @@ const GoalsSection: React.FC = () => {
                     </a>
                     {t("description-5")}
                     <a href="#contacts"
-                       className="text-blue-900 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
-                       aria-label="Ссылка на мои контакты">
+                       className="text-blue-900 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900">
                         {t("description-6")}
                     </a>
                     {t("description-7")}

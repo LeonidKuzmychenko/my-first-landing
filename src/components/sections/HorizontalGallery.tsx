@@ -123,25 +123,23 @@ const HorizontalGallery: React.FC = () => {
             >
                 <div className="flex w-full h-full">
                     {images.map((image, index) => (
-                        <GalleryItem key={index} src={image} index={index} alt={`Изображение из галереи ${index + 1}`} />
+                        <GalleryItem key={index} src={image} index={index} alt={`${t("img-alt")} ${index + 1}`} />
                     ))}
                 </div>
             </div>
 
             <div
                 className="flex justify-center mt-4 gap-3"
-                aria-label="Навигация по галерее"
+                aria-label={`${t("img-navigation")}`}
             >
                 {images.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => handleDotClick(index)}
                         className={`w-3.5 h-3.5 bg-gray-600 rounded-full cursor-pointer relative flex items-center justify-center transition-colors duration-300 transform ${index === activeIndex ? 'bg-white' : 'hover:bg-gray-500'}`}
-                        aria-label={`Перейти к изображению ${index + 1}`}
+                        aria-label={`${t("img-next")} ${index + 1}`}
                     >
-                        <div
-                            className={`w-2 h-2 bg-white rounded-full transition-opacity ${index === activeIndex ? 'opacity-100' : 'opacity-0'}`}
-                        ></div>
+                        <div className={`w-2 h-2 bg-white rounded-full transition-opacity ${index === activeIndex ? 'opacity-100' : 'opacity-0'}`}/>
                     </button>
                 ))}
             </div>
