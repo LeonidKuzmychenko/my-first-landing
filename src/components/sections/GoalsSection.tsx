@@ -53,17 +53,17 @@ const GoalsSection: React.FC = () => {
 
     const cards: CardProps[] = [
         {
-            src: `${process.env.PUBLIC_URL}/icons/figure.svg`,
+            src: `${process.env.PUBLIC_URL}/icons/goals/figure.svg`,
             title: t("card-1-title"),
             text: t("card-1-text"),
         },
         {
-            src: `${process.env.PUBLIC_URL}/icons/muscle.svg`,
+            src: `${process.env.PUBLIC_URL}/icons/goals/muscle.svg`,
             title: t("card-2-title"),
             text: t("card-2-text"),
         },
         {
-            src: `${process.env.PUBLIC_URL}/icons/diet.svg`,
+            src: `${process.env.PUBLIC_URL}/icons/goals/diet.svg`,
             title: t("card-3-title"),
             text: t("card-3-text"),
         }

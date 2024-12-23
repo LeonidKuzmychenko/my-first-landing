@@ -1,5 +1,6 @@
 import React from 'react';
 import {useTranslation} from "react-i18next";
+import {FaLink, FaMapMarkerAlt, FaPhoneAlt} from "react-icons/fa";
 
 interface SocialCard {
     src: string;
@@ -12,12 +13,17 @@ const Footer: React.FC = () => {
 
     const cards: SocialCard[] = [
         {
-            src: `${process.env.PUBLIC_URL}/icons/instagram-icon.webp`,
+            src: `${process.env.PUBLIC_URL}/icons/social/telegram-icon.webp`,
+            url: "https://www.instagram.com/",
+            alt: "Telegram"
+        },
+        {
+            src: `${process.env.PUBLIC_URL}/icons/social/instagram-icon.webp`,
             url: "https://www.instagram.com/",
             alt: "Instagram"
         },
         {
-            src: `${process.env.PUBLIC_URL}/icons/tiktok-icon.png`,
+            src: `${process.env.PUBLIC_URL}/icons/social/tiktok-icon.webp`,
             url: "https://www.tiktok.com/",
             alt: "TikTok"
         }
@@ -34,7 +40,9 @@ const Footer: React.FC = () => {
                     <div className="flex flex-row md:flex-col gap-2 flex-1 text-center">
                         <h3 tabIndex={0}
                             className="flex justify-center items-center text-xl font-bold leading-snug">
-                            {t("address")}<span className="block md:hidden">:</span>
+                            <FaMapMarkerAlt className="text-red-500 mr-2 mb-1" size={20} aria-hidden="true" />
+                            {t("address")}
+                            <span className="block md:hidden">:</span>
                         </h3>
                         <span tabIndex={0}
                               className="flex justify-center items-center mt-1 text-base font-normal leading-relaxed">
@@ -44,7 +52,9 @@ const Footer: React.FC = () => {
                     <div className="flex flex-row md:flex-col gap-2 flex-1 text-center">
                         <h3 tabIndex={0}
                             className="flex justify-center items-center text-xl font-bold leading-snug">
-                            {t("phone")}<span className="block md:hidden">:</span>
+                            <FaPhoneAlt className="text-blue-500 mr-2 mb-1" size={20} aria-hidden="true" />
+                            {t("phone")}
+                            <span className="block md:hidden">:</span>
                         </h3>
                         <a
                             href={"tel:" + `${t("phone-value")}`}
@@ -59,7 +69,9 @@ const Footer: React.FC = () => {
                             tabIndex={0}
                             className="flex justify-center items-center text-xl font-bold leading-snug"
                         >
-                            {t("social")}<span className="block md:hidden">:</span>
+                            <FaLink className="text-green-500 mr-2 mb-1" size={20} aria-hidden="true" />
+                            {t("social")}
+                            <span className="block md:hidden">:</span>
                         </h3>
                         <div className="flex justify-center gap-2">
                             {cards.map((card, index) => (

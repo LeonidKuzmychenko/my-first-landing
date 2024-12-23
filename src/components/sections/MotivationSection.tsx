@@ -1,5 +1,6 @@
 import React from 'react';
 import {useTranslation} from "react-i18next";
+import {FaCheck} from "react-icons/fa";
 
 const MotivationSection: React.FC = () => {
     const { t, i18n } = useTranslation('motivation');
@@ -27,7 +28,7 @@ const MotivationSection: React.FC = () => {
                                 tabIndex={0}
                                 className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 flex items-center justify-center"
                             >
-                                <img src={`${process.env.PUBLIC_URL}/icons/check-mark.svg`} alt="Галочка" className="w-10 h-10 mr-1" />
+                                <FaCheck className="w-7 h-7 mr-2 mb-1" />
                                 {t("text-3")}
                             </li>
                             <li
@@ -35,7 +36,7 @@ const MotivationSection: React.FC = () => {
                                 tabIndex={0}
                                 className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 flex items-center justify-center"
                             >
-                                <img src={`${process.env.PUBLIC_URL}/icons/check-mark.svg`} alt="Галочка" className="w-10 h-10 mr-1" />
+                                <FaCheck className="w-7 h-7 mr-2 mb-1" />
                                 {t("text-4")}
                             </li>
                             <li
@@ -43,7 +44,7 @@ const MotivationSection: React.FC = () => {
                                 tabIndex={0}
                                 className="text-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-600 flex items-center justify-center"
                             >
-                                <img src={`${process.env.PUBLIC_URL}/icons/check-mark.svg`} alt="Галочка" className="w-10 h-10 mr-1" />
+                                <FaCheck className="w-7 h-7 mr-2 mb-1" />
                                 {t("text-5")}
                             </li>
                         </ul>
